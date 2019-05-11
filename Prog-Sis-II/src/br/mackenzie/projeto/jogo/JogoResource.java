@@ -1,37 +1,38 @@
 
-package br.mackenzie.projeto.time;
-
+package br.mackenzie.projeto.jogo;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import io.dropwizard.jersey.params.*;
 import java.util.*;
 
-@Path("/time")
+@Path("/jogo")
 @Produces(MediaType.APPLICATION_JSON)
 
-public class TimeResource {
-    private TimeDAO dao;
+
+public class JogoResource {
     
-    public TimeResource(TimeDAO dao) {
+    private JogoDAO dao;
+    
+    public JogoResource(JogoDAO dao) {
         this.dao = dao;
     }
     
     @POST
-    public Time create(Time time) {
-        Time p = dao.criar(time);
+    public Jogo create(Jogo time) {
+        Jogo p = dao.criar(time);
         return p;
     }
     
     @GET
-    public List<Time> read() {
+    public List<Jogo> read() {
         return dao.lerTodos();
     }
     
     @PUT
     @Path("{id}")
-    public Response upadate(@PathParam("id") LongParam idParam, Time time) {
-        time.setId(idParam.get());
-        if (dao.atualizar(time)) {
+    public Response upadate(@PathParam("id") LongParam idParam, Jogo jogo) {
+        jogo.setId(idParam.get());
+        if (dao.atualizar(jogo)) {
             return Response.ok().build();
         }
         

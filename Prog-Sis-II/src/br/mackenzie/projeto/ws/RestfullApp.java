@@ -5,6 +5,8 @@ import br.mackenzie.projeto.time.TimeDAO;
 import br.mackenzie.projeto.time.TimeResource;
 import br.mackenzie.projeto.contabancaria.ContaBancariaDAO;
 import br.mackenzie.projeto.contabancaria.ContaBancariaResource;
+import br.mackenzie.projeto.jogo.JogoDAO;
+import br.mackenzie.projeto.jogo.JogoResource;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;
@@ -26,8 +28,10 @@ public class RestfullApp extends Application<Configuration> {
         ConexaoJavaDB conexao = new ConexaoJavaDB("mackadmin", "mackadmin", "jdbc:derby://localhost", 1527, "Projeto");
         TimeDAO timeDao = new TimeDAO(conexao);
         ContaBancariaDAO contaDao = new ContaBancariaDAO(conexao);
+        JogoDAO jogoDao = new JogoDAO(conexao);
         environment.jersey().register(new TimeResource(timeDao));
         environment.jersey().register(new ContaBancariaResource(contaDao));
+        environment.jersey().register(new JogoResource(jogoDao));
         environment.jersey().setUrlPattern("/api/*");
     }
 }
