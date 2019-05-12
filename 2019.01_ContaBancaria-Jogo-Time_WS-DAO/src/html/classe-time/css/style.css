@@ -1,0 +1,75 @@
+body{margin:0;background-image:url("../images/campo-de-futebol.jpg");
+background-position:center;background-size:cover;background-repeat:no-repeat;}
+/* BG COLOR */
+.bgcolor-white{background:#FFFFFF;}
+.success{background:#2CED2C;border-radius:5px;}
+.fail{background:#B33A3A;border-radius:5px;}
+.footer{background:#14141C;}
+.tab{background:#FFFFFF;border-bottom:solid 2px #0062ff;}
+.tab:hover{background:#0062ff;color:#FFFFFF !important;}
+.tab-field{background:#0062ff;}
+.main-tab{height:180px;}
+.even{background:red;}
+.not-even{background:blue;}
+.active{background:#0062ff;color:#FFFFFF !important;}
+.content{display: none !important;}
+.show{display: flex !important;}
+/* CARDS */
+.main-card{
+  color: #FFFFFF;
+  height:180px;
+}
+.card-1{
+  background-image: url('../images/create-club.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-2{
+  background-image: url('../images/update-club.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-3{
+  background-image: url('../images/delete-club.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-1:hover{transition:0.5s;left:20px;}
+.card-2:hover{transition:0.5s;left:20px;}
+.card-3:hover{transition:0.5s;left:20px;}
+/* CARDS */
+/* SIZING */
+.full-width{width:100%;}
+.set-height-100{height:100px;}
+.set-custom-size-1{height:500px;width:500px;}
+.set-custom-size-2{width:120px !important;height:30px !important;}
+.padding-25{padding:25px;}
+.margin-15{margin-top:15px;}
+/* SIZING */
+/* POSITIONING */
+.relative{position:relative;}
+.absolute{position:absolute;}
+/* POSITIONING */
+/* SPACING */
+.padding-top-5{padding-top:15px;}
+/* SPACING */
+/* FONT */
+.textcolor-white{color:#FFFFFF;}
+.textcolor-blue{color:#0062ff;}
+.textcolor-black{color:#000000;}
+/* FONT */
