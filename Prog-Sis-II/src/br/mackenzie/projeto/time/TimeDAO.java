@@ -29,9 +29,9 @@ public class TimeDAO {
         try {
             Connection conn = conexao.getConexao();
             
-            String sqlC = "INSERT INTO time(nome, anoFundacao,cidade, estado) VALUES(?,?,?,?)";
+            String sqlC = "INSERT INTO time(nome, ano_fundacao,cidade, estado) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM time";
-            String sqlU = "UPDATE time SET nome=?, anofundacao=?, cidade=?, estado=? WHERE id=?";
+            String sqlU = "UPDATE time SET nome=?, ano_fundacao=?, cidade=?, estado=? WHERE id=?";
             String sqlD = "DELETE FROM time WHERE id=?";
 
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
@@ -52,7 +52,7 @@ public class TimeDAO {
                 Time aux = new Time();
                 aux.setId(rs.getInt("id"));
                 aux.setNome(rs.getString("nome"));
-                aux.setAnoFundacao(rs.getString("anoFundacao"));
+                aux.setAnoFundacao(rs.getString("ano_fundacao"));
                 aux.setCidade(rs.getString("cidade"));
                 aux.setEstado(rs.getString("estado"));
                 times.add(aux);

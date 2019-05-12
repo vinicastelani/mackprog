@@ -10,6 +10,7 @@ import br.mackenzie.projeto.jogo.JogoResource;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.jersey.jackson.JsonProcessingExceptionMapper;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -29,9 +30,12 @@ public class RestfullApp extends Application<Configuration> {
         TimeDAO timeDao = new TimeDAO(conexao);
         ContaBancariaDAO contaDao = new ContaBancariaDAO(conexao);
         JogoDAO jogoDao = new JogoDAO(conexao);
+        
         environment.jersey().register(new TimeResource(timeDao));
         environment.jersey().register(new ContaBancariaResource(contaDao));
         environment.jersey().register(new JogoResource(jogoDao));
+        environment.jersey().register(new JsonProcessingExceptionMapper(true));
+        
         environment.jersey().setUrlPattern("/api/*");
     }
 }

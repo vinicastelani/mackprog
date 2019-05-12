@@ -35,16 +35,17 @@
     const textoAgencia = document.querySelector('#txtAgencia');
     const paragrafoMensagem = document.querySelector('#mensagem');
     function mostrarMensagem(contaCadastrada) {
-      textoNome.value = '';
-      textoMatricula.value = '';
+      textoNomeTitular.value = '';
+      textoSaldo.value = '';
+      textoAgencia.value = '';
       paragrafoMensagem.innerHTML = 'Conta Bancaria criada com o ID: ' + contaCadastrada.id;
     }
     async function criarConta() {
       const URL = `/api/conta-bancaria`;
       const dadosContaBancaria = {
-        'nome_titular': textoNomeTitular.value,
+        'nomeTitular': textoNomeTitular.value,
         'saldo': textoSaldo.value,
-        'agencia': textoAgencia.value
+        'numeroAgencia': textoAgencia.value
       };
       const postRequest = {
         method: 'POST',
