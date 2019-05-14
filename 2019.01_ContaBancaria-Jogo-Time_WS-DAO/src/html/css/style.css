@@ -1,0 +1,55 @@
+a{text-decoration:none !important;}
+body{
+  background-image:url("../images/background.png");
+  background-size: cover;
+  background-position: center;
+  }
+/* CARD SETINGS */
+.main-card{
+  color:#FFFFFF;
+  background: transparent;
+}
+.card-1{
+  background-image: url('../images/locker-room.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-2{
+  background-image: url('../images/football-field.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-3{
+  background-image: url('../images/atm.jpg');
+  background-size:cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+}
+.card-1:hover{transition:0.5s;left:20px;}
+.card-2:hover{transition:0.5s;left:20px;}
+.card-3:hover{transition:0.5s;left:20px;}
+/* CARD SETINGS */
+
+/* SPACING */
+.padding-25{padding:25px;}
+.margin-15{margin-top:15px;}
+/* SPACING */
+
+/* POSITION */
+.relative{position:relative !important;}
+.absolute{position:absolute !important;}
+/* POSITION */
