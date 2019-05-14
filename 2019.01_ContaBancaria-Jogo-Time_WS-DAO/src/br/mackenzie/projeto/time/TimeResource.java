@@ -29,7 +29,7 @@ public class TimeResource {
     
     @PUT
     @Path("{id}")
-    public Response upadate(@PathParam("id") LongParam idParam, Time time) {
+    public Response update(@PathParam("id") LongParam idParam, Time time) {
         time.setId(idParam.get());
         if (dao.atualizar(time)) {
             return Response.ok().build();
