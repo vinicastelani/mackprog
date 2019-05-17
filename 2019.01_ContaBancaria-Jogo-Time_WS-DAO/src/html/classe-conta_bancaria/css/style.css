@@ -2,11 +2,12 @@ body{margin:0;background-image:url("../images/background.jpg");
 background-position:center;background-size:cover;background-repeat:no-repeat;}
 .blur {}
 /* BG COLOR */
+.bccolor-black{background:#000000;}
 .bgcolor-white{background:#FFFFFF;}
 .success{background:#2CED2C;border-radius:5px;}
 .fail{background:#B33A3A;border-radius:5px;}
 .footer{background:#14141C;}
-.tab{background:#000000;border-bottom:solid 2px #FFFFFF;}
+.tab{background:#000000;border-bottom:solid 2px #000000;}
 .tab:hover{background:#FFFFFF;color:#000000 !important;}
 .tab-field{background:#000000;}
 .main-tab{height:180px;}
