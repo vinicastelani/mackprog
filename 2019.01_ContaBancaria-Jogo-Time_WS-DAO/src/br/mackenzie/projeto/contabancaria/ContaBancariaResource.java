@@ -33,7 +33,7 @@ public class ContaBancariaResource {
     
     @PUT
     @Path("{id}")
-    public Response upadate(@PathParam("id") LongParam idParam, ContaBancaria prof) {
+    public Response update(@PathParam("id") LongParam idParam, ContaBancaria prof) {
         prof.setId(idParam.get());
         if (dao.atualizar(prof)) {
             return Response.ok().build();

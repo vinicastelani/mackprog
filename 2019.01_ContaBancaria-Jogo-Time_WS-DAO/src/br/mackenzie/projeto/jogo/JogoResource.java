@@ -30,7 +30,7 @@ public class JogoResource {
     
     @PUT
     @Path("{id}")
-    public Response upadate(@PathParam("id") LongParam idParam, Jogo jogo) {
+    public Response update(@PathParam("id") LongParam idParam, Jogo jogo) {
         jogo.setId(idParam.get());
         if (dao.atualizar(jogo)) {
             return Response.ok().build();
