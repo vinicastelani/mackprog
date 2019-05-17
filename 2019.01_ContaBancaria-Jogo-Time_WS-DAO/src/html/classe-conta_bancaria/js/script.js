@@ -36,6 +36,13 @@ $(window).ready(function(){
           $("#insert-panel").animate({top:0,opacity:1},1000);
         });
       }
+      $(".close-icon").on("click", function(){
+          $("#insert-panel").animate({top:-50,opacity:0},1000, function(){
+            $("#name").show()
+            $("#insert-panel").hide();
+            $("#main-panel").animate({left:0,opacity:1},1000);
+          });
+      });
     });
   });
 
