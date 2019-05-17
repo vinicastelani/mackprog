@@ -1,7 +1,6 @@
 $(window).ready(function(){
+
   setTimeout(function(){
-    
-    $(".animate").fadeIn(1000);
     $(".banners").each(function(){
       $(this).animate({opacity:1},500);
     });
@@ -9,7 +8,6 @@ $(window).ready(function(){
 
   $(".tab").on("click", function(){
     var tabnumber = $(this).data("tab");
-
     $(".tab").each(function(){
       if($(this).data("tab") == tabnumber){
         $(this).addClass("active");
@@ -27,4 +25,20 @@ $(window).ready(function(){
       }
     });
   });
+
+  $(".card-action").on("click",function(){
+    var cardnumber = $(this).data("panel");
+    $(".panel").each(function(){
+      if($(this).data("panel") == cardnumber){
+        $("#main-panel").animate({left:40,opacity:0},1000 ,function(){
+          $("#name").hide();
+          $("#insert-panel").show();
+          $("#insert-panel").animate({top:0,opacity:1},1000);
+        });
+      }
+    });
+  });
+
+
+
 });
