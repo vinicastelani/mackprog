@@ -1,6 +1,81 @@
-body{overflow:hidden;margin:0;background:#003459;}
-
+body{margin:0;background-image:url("../images/background.jpg");
+background-position:center;background-size:cover;background-repeat:no-repeat;}
+.blur {}
+/* BG COLOR */
+.bgcolor-white{background:#FFFFFF;}
 .success{background:#2CED2C;border-radius:5px;}
 .fail{background:#B33A3A;border-radius:5px;}
 .footer{background:#14141C;}
-/* BG COLOR */
+.tab{background:#000000;border-bottom:solid 2px #FFFFFF;}
+.tab:hover{background:#FFFFFF;color:#000000 !important;}
+.tab-field{background:#000000;}
+.main-tab{height:180px;}
+.even{background:red;}
+.not-even{background:blue;}
+.active{background:#FFFFFF;color:#000000 !important;}
+.content{display: none !important;}
+.show{display: flex !important;}
+/* CARDS */
+.main-card{
+  color: #FFFFFF;
+  height:180px;
+}
+.card-1{
+  background-image: url('../images/card1.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+  text-shadow: 2px 2px #000000;
+}
+.card-2{
+  background-image: url('../images/card2.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+  text-shadow: 2px 2px #000000;
+}
+.card-3{
+  background-image: url('../images/card3.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+  text-shadow: 2px 2px #000000;
+}
+.card-1:hover{transition:0.5s;left:20px;}
+.card-2:hover{transition:0.5s;left:20px;}
+.card-3:hover{transition:0.5s;left:20px;}
+/* CARDS */
+/* SIZING */
+.full-width{width:100%;}
+.set-height-100{height:100px;}
+.set-custom-size-1{height:500px;width:500px;}
+.set-custom-size-2{width:120px !important;height:30px !important;}
+.padding-25{padding:25px;}
+.margin-15{margin-top:15px;}
+/* SIZING */
+/* POSITIONING */
+.relative{position:relative;}
+.absolute{position:absolute;}
+/* POSITIONING */
+/* SPACING */
+.padding-top-5{padding-top:15px;}
+/* SPACING */
+/* FONT */
+.textcolor-white{color:#FFFFFF;}
+.textcolor-blue{color:#0062ff;}
+.textcolor-black{color:#000000;}
+.decoration-none{text-decoration:none!important; }
+/* FONT */
+a:hover{color: #FFFFFF !important;}

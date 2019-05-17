@@ -28,6 +28,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
   opacity: 0;
   left:0;
   transition:0.5s;
+    text-shadow: 2px 2px #000000;
 }
 .card-2{
   background-image: url('../images/update-club.jpg');
@@ -38,6 +39,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
   opacity: 0;
   left:0;
   transition:0.5s;
+  text-shadow: 2px 2px #000000;
 }
 .card-3{
   background-image: url('../images/delete-club.jpg');
@@ -48,6 +50,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
   opacity: 0;
   left:0;
   transition:0.5s;
+  text-shadow: 2px 2px #000000;
 }
 .card-1:hover{transition:0.5s;left:20px;}
 .card-2:hover{transition:0.5s;left:20px;}
@@ -71,5 +74,6 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
 /* FONT */
 .textcolor-white{color:#FFFFFF;}
 .textcolor-blue{color:#0062ff;}
-.textcolor-black{color:#000000;}
+.decoration-none{text-decoration:none!important; }
 /* FONT */
+a:hover{color: #FFFFFF !important;}

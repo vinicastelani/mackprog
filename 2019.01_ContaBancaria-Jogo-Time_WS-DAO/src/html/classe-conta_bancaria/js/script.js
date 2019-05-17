@@ -1,26 +1,30 @@
 $(window).ready(function(){
-  var bool = true;
-  $("#submitAccount").on("click",function(){
-  if(bool){
-    $("#return-message").addClass("success");
-    $("#return-message").html("Conta criada!");
-    $("#return-message").fadeIn(1000, function(){
-      setTimeout(function(){
-        $("#return-message").fadeOut();
-        $("#return-message").removeClass("success");
-      },1000);
+  setTimeout(function(){
+    
+    $(".animate").fadeIn(1000);
+    $(".banners").each(function(){
+      $(this).animate({opacity:1},500);
     });
-  }else{
-    $("#return-message").addClass("fail");
-    $("#return-message").html("Erro na criação da conta!");
-    $("#return-message").fadeIn(1000, function(){
-      setTimeout(function(){
-        $("#return-message").fadeOut();
-        $("#return-message").removeClass("fail");
-      },1000);
+  },100);
+
+  $(".tab").on("click", function(){
+    var tabnumber = $(this).data("tab");
+
+    $(".tab").each(function(){
+      if($(this).data("tab") == tabnumber){
+        $(this).addClass("active");
+      }
+      else{
+        $(this).removeClass("active");
+      }
     });
-  }
+    $(".content").each(function(){
+      if($(this).data("tab") == tabnumber){
+        $(this).addClass("show");
+      }
+      else{
+        $(this).removeClass("show");
+      }
+    });
   });
-
-
 });
