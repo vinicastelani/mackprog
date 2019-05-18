@@ -20,10 +20,36 @@
     <tbody id="contas">
     </tbody>
   </table>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Titular</th>
+      <th>Saldo</th>
+      <th>Agência</th>
+    </tr>
+    <tbody id="contasMaS">
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Titular</th>
+      <th>Saldo</th>
+      <th>Agência</th>
+    </tr>
+    <tbody id="contasMeS">
+    </tbody>
+  </table>
   <script>
     const corpoTabela = document.querySelector('#contas');
+    const corpoTabelaMaS = document.querySelector('#contasMaS');
+    const corpoTabelaMeS = document.querySelector('#contasMeS');
     const contadorParagrafo = document.querySelector('#contador');
-    function preencherTabela(contas) {
+    function preencherTabela(contas, tabela) {
       var linhasTabela = '';
       var n = contas.length;
       for (var i = 0; i < n; i++) {
@@ -33,18 +59,37 @@
           '<td>' + conta.saldo + '</td></tr>';
           '<td>' + conta.numeroAgencia + '</td></tr>\n';
       }
-      corpoTabela.innerHTML = linhasTabela;
-      contadorParagrafo.innerHTML = n + ' ' + (n == 1 ? 'conta' : 'contas');
+      tabela.innerHTML = linhasTabela;
+      //contadorParagrafo.innerHTML = n + ' ' + (n == 1 ? 'conta' : 'contas');
     }
-    async function listarTodosProfessores() {
+    async function listarContas() {
       const URL = `/api/conta-bancaria`;
       try {
-        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse));
+        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, corpoTabela));
       } catch (e) {
         corpoTabela.innerHTML = e;
       }
     }
-    listarTodosProfessores();
+    async function listarContasMaS() {
+      const URL = `/api/conta-bancaria/maior-saldo`;
+      try {
+        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, corpoTabelaMaS));
+      } catch (e) {
+        corpoTabelaMaS.innerHTML = e;
+      }
+    }
+    async function listarContasMeS() {
+      const URL = `/api/conta-bancaria/menor-saldo`;
+      try {
+        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, corpoTabelaMeS));
+      } catch (e) {
+        corpoTabelaMeS.innerHTML = e;
+      }
+    }
+    
+    listarContas();
+    listarContasMaS();
+    listarContasMeS();
   </script>
 </body>
 

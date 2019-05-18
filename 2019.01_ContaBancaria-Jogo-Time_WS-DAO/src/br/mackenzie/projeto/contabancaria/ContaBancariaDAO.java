@@ -14,6 +14,8 @@ public class ContaBancariaDAO {
     
     private PreparedStatement stmtC;
     private PreparedStatement stmtR;
+    private PreparedStatement stmtRMaS;
+    private PreparedStatement stmtRMeS;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
     
@@ -24,6 +26,8 @@ public class ContaBancariaDAO {
             
             String sqlC = "INSERT INTO conta_bancaria(nome_titular, saldo, numero_agencia) VALUES(?,?,?)";
             String sqlR = "SELECT * FROM conta_bancaria";
+            String sqlRMaS = "SELECT * FROM conta_bancaria ORDER BY saldo DESC";
+            String sqlRMeS = "SELECT * FROM conta_bancaria ORDER BY saldo ASC";
             String sqlU = "UPDATE conta_bancaria SET nome_titular=?, saldo=? , numero_agencia=? WHERE id=?";
             String sqlD = "DELETE FROM conta_bancaria WHERE id=?";
             
@@ -31,6 +35,8 @@ public class ContaBancariaDAO {
             // gerado automaticamente pelo banco
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
+            this.stmtRMaS = conn.prepareStatement(sqlRMaS);
+            this.stmtRMeS = conn.prepareStatement(sqlRMeS);
             this.stmtU = conn.prepareStatement(sqlU);
             this.stmtD = conn.prepareStatement(sqlD);
         }catch(Exception e) {
@@ -42,6 +48,46 @@ public class ContaBancariaDAO {
     public List<ContaBancaria> lerTodos() {
         try{
             ResultSet rs = this.stmtR.executeQuery();
+            List<ContaBancaria> contasBancarias = new ArrayList<>();
+            
+            while(rs.next()) {
+                ContaBancaria aux = new ContaBancaria();
+                aux.setId(rs.getInt("id"));
+                aux.setNomeTitular(rs.getString("nome_titular"));
+                aux.setSaldo(rs.getDouble("saldo"));
+                aux.setNumeroAgencia(rs.getString("numero_agencia"));
+                contasBancarias.add(aux);
+            }
+            return contasBancarias;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public List<ContaBancaria> maiorSaldo() {
+        try{
+            ResultSet rs = this.stmtRMaS.executeQuery();
+            List<ContaBancaria> contasBancarias = new ArrayList<>();
+            
+            while(rs.next()) {
+                ContaBancaria aux = new ContaBancaria();
+                aux.setId(rs.getInt("id"));
+                aux.setNomeTitular(rs.getString("nome_titular"));
+                aux.setSaldo(rs.getDouble("saldo"));
+                aux.setNumeroAgencia(rs.getString("numero_agencia"));
+                contasBancarias.add(aux);
+            }
+            return contasBancarias;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public List<ContaBancaria> menorSaldo() {
+        try{
+            ResultSet rs = this.stmtRMeS.executeQuery();
             List<ContaBancaria> contasBancarias = new ArrayList<>();
             
             while(rs.next()) {

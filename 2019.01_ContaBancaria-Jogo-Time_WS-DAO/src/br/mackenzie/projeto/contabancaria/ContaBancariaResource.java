@@ -31,6 +31,18 @@ public class ContaBancariaResource {
         return dao.lerTodos();
     }
     
+    @GET
+    @Path("/maior-saldo")
+    public List<ContaBancaria> readMaS() {
+        return dao.maiorSaldo();
+    }
+    
+    @GET
+    @Path("/menor-saldo")
+    public List<ContaBancaria> readMeS() {
+        return dao.menorSaldo();
+    }
+    
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, ContaBancaria prof) {
