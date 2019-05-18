@@ -1,10 +1,18 @@
-body{margin:0;background-image:url("../images/campo-de-futebol.jpg");
-background-position:center;background-size:cover;background-repeat:no-repeat;}
+body{margin:0;height:100%;background-image:url("../images/background.jpg");
+background-position:center;background-size:cover;background-repeat:no-repeat;overflow: hidden;}
+
+/* PANELS */
+.panel{top:-40px;opacity:0;height:100%;}
+/* PANELS */
+
 /* BG COLOR */
+.bgcolor-black{background:#000000;}
 .bgcolor-white{background:#FFFFFF;}
-.success{background:#2CED2C;border-radius:5px;}
-.fail{background:#B33A3A;border-radius:5px;}
-.footer{background:#14141C;}
+.exit{transition: 0.5s;background:#000000; cursor: pointer;}
+.exit:hover{background: red; transition: 0.5s}
+/* BG COLOR */
+/* TABLE */
+.tab{background:#FFFFFF;border-bottom:solid 2px #BD1010;}
 .tab{background:#FFFFFF;border-bottom:solid 2px #BD1010;}
 .tab:hover{background:#BD1010;color:#FFFFFF !important;}
 .tab-field{background:#BD1010;}
@@ -12,15 +20,26 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
 .even{background:red;}
 .not-even{background:blue;}
 .active{background:#BD1010;color:#FFFFFF !important;}
-.content{display: none !important;}
-.show{display: flex !important;}
+/* TABLE */
 /* CARDS */
 .main-card{
   color: #FFFFFF;
   height:180px;
 }
 .card-1{
-  background-image: url('../images/create-club.jpg');
+  background-image: url('../images/card1.jpg');
+  background-size: cover;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
+}
+.card-1:hover{transition:0.5s;left:20px;}
+.card-2{
+  background-image: url('../images/card2.jpg');
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
@@ -28,29 +47,22 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
   opacity: 0;
   left:0;
   transition:0.5s;
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
 }
-.card-2{
-  background-image: url('../images/update-club.jpg');
-  background-size: cover;
-  background-position: top;
-  color:#FFFFFF;
-  height:180px;
-  opacity: 0;
-  left:0;
-  transition:0.5s;
-}
-.card-3{
-  background-image: url('../images/delete-club.jpg');
-  background-size: cover;
-  background-position: bottom;
-  color:#FFFFFF;
-  height:180px;
-  opacity: 0;
-  left:0;
-  transition:0.5s;
-}
-.card-1:hover{transition:0.5s;left:20px;}
 .card-2:hover{transition:0.5s;left:20px;}
+.card-3{
+  background-image: url('../images/card3.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#FFFFFF;
+  height:180px;
+  opacity: 0;
+  left:0;
+  transition:0.5s;
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
+}
 .card-3:hover{transition:0.5s;left:20px;}
 /* CARDS */
 /* SIZING */
@@ -58,18 +70,30 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
 .set-height-100{height:100px;}
 .set-custom-size-1{height:500px;width:500px;}
 .set-custom-size-2{width:120px !important;height:30px !important;}
-.padding-25{padding:25px;}
-.margin-15{margin-top:15px;}
 /* SIZING */
 /* POSITIONING */
 .relative{position:relative;}
 .absolute{position:absolute;}
 /* POSITIONING */
 /* SPACING */
+.padding-25{padding:25px;}
+.margin-15{margin-top:15px;}
 .padding-top-5{padding-top:15px;}
 /* SPACING */
 /* FONT */
 .textcolor-white{color:#FFFFFF;}
-.textcolor-blue{color:#BD1010;}
+.textcolor-red{color:#BD1010;}
+.textcolor-blue{color:#0062ff;}
 .textcolor-black{color:#000000;}
 /* FONT */
+/* MISC */
+.decoration-none{text-decoration:none!important; }
+.success{background:#2CED2C;border-radius:5px;}
+.fail{background:#B33A3A;border-radius:5px;}
+.footer{background:#14141C;}
+.content{display: none !important;}
+.show{display: flex !important;}
+.display-block{display: block !important;}
+.hide{display: none;}
+a:hover{color: #FFFFFF !important;}
+/* MISC */
