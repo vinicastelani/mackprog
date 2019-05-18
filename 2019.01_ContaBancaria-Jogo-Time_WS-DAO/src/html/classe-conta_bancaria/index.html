@@ -14,7 +14,7 @@
 <body>
   <!-- INSERT -->
   <div class="row justify-content-center">
-    <div class="container absolute panel" id="insert-panel" data-panel="1">
+    <div class="container absolute panel hide" data-panel="1">
       <div class="row pt-4 justify-content-center pb-4">
         <div class="col-xs-8 ">
           <div class="row pt-4 relative">
@@ -65,6 +65,109 @@
     </div>
   </div>
   <!-- INSERT -->
+
+  <!-- UPDATE -->
+  <div class="row justify-content-center">
+    <div class="container absolute panel hide" data-panel="2">
+      <div class="row pt-4 justify-content-center pb-4">
+        <div class="col-xs-8 ">
+          <div class="row pt-4 relative">
+            <div class="col-1 bgcolor-black exit close-icon">
+              <div class="row p-2 justify-content-center">
+                <span class="textcolor-white">X</span>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-right">
+            <div class="bgcolor-black pl-5 pr-5">
+              <h1 class="text-center textcolor-white">Update a Account:</h1>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
+                <div class="col-3 p-2"><input type="text" id="value-1" placeholder="ex: ID" required>
+                </div>
+                <div class="col-6 p-2">&nbsp;</div>
+                <div class="col-6 p-2"><input type="button" value="Buscar" id="submit" placeholder="ex: 1234" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Nome:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-1" placeholder="ex: nome sobrenome" required></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Saldo:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-2" placeholder="R$" required></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Ag&ecirc;ncia:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-3" placeholder="ex: 1234" required></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row justify-content-center">
+                <div class="col-ls-12 p-2"><input type="button" value="Cadastrar" id="submit" placeholder="ex: 1234" required></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- UPDATE -->
+
+  <!-- DELETE -->
+  <div class="row justify-content-center">
+    <div class="container absolute panel hide" data-panel="3">
+      <div class="row pt-4 justify-content-center pb-4">
+        <div class="col-xs-8 ">
+          <div class="row pt-4 relative">
+            <div class="col-1 bgcolor-black exit close-icon">
+              <div class="row p-2 justify-content-center">
+                <span class="textcolor-white">X</span>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-right">
+            <div class="bgcolor-black pl-5 pr-5">
+              <h1 class="text-center textcolor-white">Delete a account:</h1>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
+                <div class="col-3 p-2"><input type="text" id="value-1" placeholder="ex: ID" required>
+                </div>
+                <div class="col-6 p-2">&nbsp;</div>
+                <div class="col-6 p-2"><input type="button" value="Buscar" id="submit" placeholder="ex: 1234" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- INSERT -->
+
+
   <div class="container relative" id="main-panel">
     <div class="row pt-4 pb-4">
       <div class="col-lg-6 col-sm-12">
@@ -98,7 +201,7 @@
             </div>
           </div>
 
-          <div class="row content show" data-tab="1">
+          <div class="row content show get1" data-tab="1">
             <div class="col-3 tab-field textcolor-white">
               <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 1</b></p>
             </div>
@@ -112,7 +215,7 @@
               <p class="text-center padding-top-5 textcolor-white"><b>Value 4 Tab 1</b></p>
             </div>
           </div>
-          <div class="row content" data-tab="2">
+          <div class="row content get2" data-tab="2">
             <div class="col-3 tab-field textcolor-white">
               <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 2</b></p>
             </div>
@@ -126,7 +229,7 @@
               <p class="text-center padding-top-5 textcolor-white"><b>Value 4 Tab 2</b></p>
             </div>
           </div>
-          <div class="row content" data-tab="3">
+          <div class="row content get3" data-tab="3">
             <div class="col-3 tab-field textcolor-white">
               <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 3</b></p>
             </div>

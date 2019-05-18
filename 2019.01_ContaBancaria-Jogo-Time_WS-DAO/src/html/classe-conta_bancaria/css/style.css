@@ -1,9 +1,8 @@
-body{margin:0;background-image:url("../images/background.jpg");
+body{margin:0;height:100%;background-image:url("../images/background.jpg");
 background-position:center;background-size:cover;background-repeat:no-repeat;}
 
 /* PANELS */
-.panel{left:;}
-#insert-panel{top:-40px;opacity:0;z-index: 1;display: none;}
+.panel{top:-40px;opacity:0;}
 /* PANELS */
 
 /* BG COLOR */
@@ -93,6 +92,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;}
 .footer{background:#14141C;}
 .content{display: none !important;}
 .show{display: flex !important;}
+.display-block{display: block !important;}
 .hide{display: none;}
 a:hover{color: #FFFFFF !important;}
 /* MISC */
