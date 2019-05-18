@@ -1,12 +1,5 @@
 $(window).ready(function(){
 
-  var string = "<div class='col-3 tab-field textcolor-white'>"+
-    "<p class='text-center padding-top-5 textcolor-white'><b>Value 1 Tab 3</b></p>" +
-  "</div>";
-
-  $(".get3").append(string);
-
-
   setTimeout(function(){
     $(".banners").each(function(){
       $(this).animate({opacity:1},500);
