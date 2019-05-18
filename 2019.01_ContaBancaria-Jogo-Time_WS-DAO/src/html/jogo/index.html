@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="PT-br" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Mackenzie System Management</title>
+  <link rel="shortcut icon" href="../images/title-icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery/jquery-3.4.1.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/dao.js"></script>
+</head>
+
+<body>
+  <!-- INSERT -->
+  <div class="row justify-content-center">
+    <div class="container relative panel hide" data-panel="1">
+      <div class="row pt-4 justify-content-center pb-4">
+        <div class="col-8 ">
+          <div class="row pt-4 relative">
+            <div class="col-1 bgcolor-black exit close-icon">
+              <div class="row p-2 justify-content-center">
+                <span class="textcolor-white">X</span>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 mt-2 bgcolor-black  justify-content-right">
+            <div class="pl-5 pr-5">
+              <h1 class="text-center textcolor-white">Create a Match:</h1>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Time A:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-1" placeholder="ex: nome sobrenome" ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Time B:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-1" placeholder="ex: " ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols time A:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-2" placeholder="R$" ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols time B:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-2" placeholder="R$" ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row justify-content-center">
+                <div class="col-ls-12 p-2"><input type="button" value="Enviar" id="submit" placeholder="" ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- INSERT -->
+
+  <!-- UPDATE -->
+  <div class="row justify-content-center">
+    <div class="container relative panel hide" data-panel="2">
+      <div class="row pt-4 justify-content-center pb-4">
+        <div class="col-8 ">
+          <div class="row pt-4 relative">
+            <div class="col-1 bgcolor-black exit close-icon">
+              <div class="row p-2 justify-content-center">
+                <span class="textcolor-white">X</span>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 mt-2 bgcolor-black  justify-content-right">
+            <div class="pl-5 pr-5">
+              <h1 class="text-center textcolor-white">Update a Match:</h1>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
+                <div class="col-3 p-2"><input type="text" id="value-1" placeholder="ex: ID" >
+                </div>
+                <div class="col-6 p-2">&nbsp;</div>
+                <div class="col-6 p-2"><input type="button" value="Buscar" id="submit" placeholder="ex: 1234" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Time A:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-1" placeholder="ex: nome sobrenome" ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Time B:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-1" placeholder="ex: " ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols time A:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-2" placeholder="R$" ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols time B:</span></div>
+                <div class="col-6 p-2"><input type="text" id="value-2" placeholder="R$" ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-1 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row justify-content-center">
+                <div class="col-ls-12 p-2"><input type="button" value="Enviar" id="submit" placeholder="" ></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- UPDATE -->
+
+  <!-- DELETE -->
+  <div class="row justify-content-center">
+    <div class="container relative panel hide" data-panel="3">
+      <div class="row pt-4 justify-content-center pb-4">
+        <div class="col-8 ">
+          <div class="row pt-4 relative">
+            <div class="col-1 bgcolor-black exit close-icon">
+              <div class="row p-2 justify-content-center">
+                <span class="textcolor-white">X</span>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-1 mt-2 bgcolor-black  justify-content-right">
+            <div class="pl-5 pr-5">
+              <h1 class="text-center textcolor-white">Delete a Match:</h1>
+            </div>
+          </div>
+          <div class="row pt-4 justify-content-center">
+            <div class="col-12 bgcolor-black">
+              <div class="row">
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
+                <div class="col-3 p-2"><input type="text" id="value-1" placeholder="ex: ID" >
+                </div>
+                <div class="col-3 p-2"><input type="button" value="Delete" id="submit">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- INSERT -->
+
+
+  <div class="container relative" id="main-panel">
+    <div class="row pt-4 pb-4">
+      <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-12 col-sm-12  margin-15 padding-25 main-card">
+          <h1><b><a href="../index.html" class="decoration-none textcolor-white" id="name">Mackenzie Management System</a></b></h1>
+        </div>
+        <div class="col-lg-12 col-sm-12 pt-3">
+          <div class="row pb-2">
+            <div class="col-4 tab textcolor-red active" data-tab="1">
+              <p class="text-center padding-top-5"><b>Read 1</b></p>
+            </div>
+            <div class="col-4 tab textcolor-red" data-tab="2">
+              <p class="text-center padding-top-5"><b>Read 2</b></p>
+            </div>
+            <div class="col-4 tab textcolor-red" data-tab="3">
+              <p class="text-center padding-top-5"><b>Read 3</b></p>
+            </div>
+          </div>
+          <div class="row pb-2">
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Field 1</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Field 2</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Field 3</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Field 3</b></p>
+            </div>
+          </div>
+
+          <div class="row content show get1" data-tab="1">
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 1</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 2 Tab 1</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 3 Tab 1</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 4 Tab 1</b></p>
+            </div>
+          </div>
+          <div class="row content get2" data-tab="2">
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 2</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 2 Tab 2</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 3 Tab 2</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 4 Tab 2</b></p>
+            </div>
+          </div>
+          <div class="row content get3" data-tab="3">
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 1 Tab 3</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 2 Tab 3</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 3 Tab 3</b></p>
+            </div>
+            <div class="col-3 tab-field textcolor-white">
+              <p class="text-center padding-top-5 textcolor-white"><b>Value 4 Tab 3</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12 ">
+        <div class="col-lg-12 col-sm-12 margin-15 card-action" data-panel="1">
+          <div class="col-lg-12 col-sm-12  padding-25 banners card-1 animate relative">
+            <h1><b>Create a Match</b></h1>
+          </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 margin-15 card-action " data-panel="2">
+          <div class="col-lg-12 col-sm-12  padding-25 banners card-2 animate">
+            <h1><b>Update a Match</b></h1>
+          </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 margin-15 card-action" data-panel="3">
+          <div class="col-lg-12 col-sm-12  padding-25 banners card-3 animate">
+            <h1><b>Delete a Match</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
