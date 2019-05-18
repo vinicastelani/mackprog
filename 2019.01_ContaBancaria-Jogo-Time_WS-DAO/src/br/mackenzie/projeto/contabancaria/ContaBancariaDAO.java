@@ -25,7 +25,7 @@ public class ContaBancariaDAO {
             Connection conn = conexao.getConexao();
             
             String sqlC = "INSERT INTO conta_bancaria(nome_titular, saldo, numero_agencia) VALUES(?,?,?)";
-            String sqlR = "SELECT * FROM conta_bancaria";
+            String sqlR = "SELECT * FROM conta_bancaria ORDER BY nome_titular ASC";
             String sqlRMaS = "SELECT * FROM conta_bancaria ORDER BY saldo DESC";
             String sqlRMeS = "SELECT * FROM conta_bancaria ORDER BY saldo ASC";
             String sqlU = "UPDATE conta_bancaria SET nome_titular=?, saldo=? , numero_agencia=? WHERE id=?";
