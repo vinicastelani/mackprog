@@ -40,8 +40,9 @@ $(window).ready(function(){
       corpoTabelaMeS.innerHTML = e;
     }
   }
-  
+
   listarContas();
   listarContasMaS();
   listarContasMeS();
 });
+
