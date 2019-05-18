@@ -40,16 +40,17 @@ $(window).ready(function(){
       console.log(panel);
       if($(this).data("panel") == dataCard){
         //console.log("Card: " + dataCard + " Panel: " + $(this).data("panel"));
-        $(this).addClass("display-block");
         $("#main-panel").animate({left:40, opacity:0},1000, function(){
           $(this).hide();
           $(panel).animate({top:40,opacity:1} , 1000);
           $(panel).removeClass("hide");
+          $(this).addClass("display-block");
         });
           $(".close-icon").on("click", function(){
             $(panel).animate({top:-50,opacity:0},1000, function(){
               $("#name").show()
-              $(panel).hide();
+              $(panel).removeClass("display-block");
+              $(panel).addClass("hide");
               $("#main-panel").show();
               $("#main-panel").animate({left:0,opacity:1},1000);
             });
