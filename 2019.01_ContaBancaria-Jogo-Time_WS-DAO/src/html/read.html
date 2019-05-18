@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contas Bancárias (read)</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <p><a href="index.html">&lt; Voltar para página inicial</a></p>
+  <h1>Contas Bancarias</h1>
+  <p style="font-weight:bold" id="contador"></p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Titular</th>
+      <th>Saldo</th>
+      <th>Agência</th>
+    </tr>
+    <tbody id="contas">
+    </tbody>
+  </table>
+  <script>
+    const corpoTabela = document.querySelector('#contas');
+    const contadorParagrafo = document.querySelector('#contador');
+    function preencherTabela(contas) {
+      var linhasTabela = '';
+      var n = contas.length;
+      for (var i = 0; i < n; i++) {
+        var conta = contas[i];
+        linhasTabela += '<tr><td>' + conta.id + '</td>' +
+          '<td>' + conta.nomeTitular + '</td>' +
+          '<td>' + conta.saldo + '</td></tr>';
+          '<td>' + conta.numeroAgencia + '</td></tr>\n';
+      }
+      corpoTabela.innerHTML = linhasTabela;
+      contadorParagrafo.innerHTML = n + ' ' + (n == 1 ? 'conta' : 'contas');
+    }
+    async function listarTodosProfessores() {
+      const URL = `/api/conta-bancaria`;
+      try {
+        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse));
+      } catch (e) {
+        corpoTabela.innerHTML = e;
+      }
+    }
+    listarTodosProfessores();
+  </script>
+</body>
+
+</html>
