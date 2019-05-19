@@ -1,9 +1,9 @@
 $(window).ready(function(){
 
-    var txtNomeTitular = $("#txtNomeTitular");
-    var txtAgencia = $("#txtAgencia");
-    var txtSaldo = $("#txtSaldo");
-    var submit = $("#submit");
+    var txtNomeTitular = $("#txtNomeTitularCreate");
+    var txtAgencia = $("#txtAgenciaCreate");
+    var txtSaldo = $("#txtSaldoCreate");
+    var submit = $("#submitCreate");
 
     $(submit).on("click",function(){
         const URL = `/api/conta-bancaria`;
@@ -29,9 +29,9 @@ $(window).ready(function(){
     });
 
     async function mostrarMensagem(contaCadastrada) {
-        txtNomeTitular.val(" ");
-        txtSaldo.val(" ");
-        txtAgencia.val(" ");
+        txtNomeTitular.val("");
+        txtSaldo.val("");
+        txtAgencia.val("");
         
         if(contaCadastrada.code != 500){
             $("#success-msg").text(`Account created with the ID:${contaCadastrada.id}`)

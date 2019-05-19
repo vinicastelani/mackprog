@@ -1,5 +1,5 @@
 body{margin:0;height:100%;background-image:url("../images/background.jpg");
-background-position:center;background-size:cover;background-repeat:no-repeat;overflow: hidden;}
+background-size:cover;background-repeat:no-repeat;overflow: hidden;}
 
 /* PANELS */
 .panel{top:-40px;opacity:0;height:100%;}
@@ -30,7 +30,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;ove
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
@@ -43,7 +43,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;ove
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
@@ -56,7 +56,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;ove
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
@@ -86,6 +86,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;ove
 .textcolor-black{color:#000000;}
 /* FONT */
 /* MISC */
+.footer {background-color: #343a40;}
 .decoration-none{text-decoration:none!important; }
 .success{background:#2CED2C;border-radius:5px;}
 .fail{background:#B33A3A;border-radius:5px;}

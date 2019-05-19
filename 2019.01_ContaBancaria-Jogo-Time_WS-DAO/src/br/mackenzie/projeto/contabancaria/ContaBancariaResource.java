@@ -43,6 +43,12 @@ public class ContaBancariaResource {
         return dao.menorSaldo();
     }
     
+    @GET
+    @Path("/{id}")
+    public ContaBancaria readID(@PathParam("id") LongParam idParam) {
+        return dao.lerPorID(idParam.get());
+    }
+    
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, ContaBancaria prof) {

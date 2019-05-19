@@ -1,5 +1,6 @@
 $(window).ready(function(){
 
+  const resync = document.querySelector('#resync-data');
   //const contadorParagrafo = document.querySelector('#contador');
   function preencherTabela(contas, dataTab) {
     const tabContas = document.querySelector(`#tab${dataTab}`);
@@ -44,5 +45,12 @@ $(window).ready(function(){
   listarContas();
   listarContasMaS();
   listarContasMeS();
+
+  $(resync).on("click",function(){
+    listarContas();
+    listarContasMaS();
+    listarContasMeS();
+  });
+
 });
 

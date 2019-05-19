@@ -1,9 +1,10 @@
 a{text-decoration:none !important;}
 body{
-  background-image:url("../images/background.png");
+  background-image:url("../images/background.jpg");
   background-size: cover;
-  background-position: center;
-  }
+  width: 100%;
+}
+  
 /* CARD SETINGS */
 .main-card{
   color:#FFFFFF;
@@ -14,7 +15,7 @@ body{
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
@@ -24,7 +25,7 @@ body{
   background-size: cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
@@ -34,11 +35,16 @@ body{
   background-size:cover;
   background-position: center;
   color:#FFFFFF;
-  height:180px;
+  height:230px;
   opacity: 0;
   left:0;
   transition:0.5s;
 }
+
+.footer {
+  background-color: #343a40;
+}
+
 .card-1:hover{transition:0.5s;left:20px;}
 .card-2:hover{transition:0.5s;left:20px;}
 .card-3:hover{transition:0.5s;left:20px;}

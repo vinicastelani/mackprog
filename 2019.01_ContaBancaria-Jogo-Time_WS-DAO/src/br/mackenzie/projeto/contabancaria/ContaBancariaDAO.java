@@ -16,6 +16,7 @@ public class ContaBancariaDAO {
     private PreparedStatement stmtR;
     private PreparedStatement stmtRMaS;
     private PreparedStatement stmtRMeS;
+    private PreparedStatement stmtRID;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
     
@@ -26,6 +27,7 @@ public class ContaBancariaDAO {
             
             String sqlC = "INSERT INTO conta_bancaria(nome_titular, saldo, numero_agencia) VALUES(?,?,?)";
             String sqlR = "SELECT * FROM conta_bancaria ORDER BY nome_titular ASC";
+            String sqlRID = "SELECT * FROM conta_bancaria WHERE id=?";
             String sqlRMaS = "SELECT * FROM conta_bancaria ORDER BY saldo DESC";
             String sqlRMeS = "SELECT * FROM conta_bancaria ORDER BY saldo ASC";
             String sqlU = "UPDATE conta_bancaria SET nome_titular=?, saldo=? , numero_agencia=? WHERE id=?";
@@ -37,6 +39,7 @@ public class ContaBancariaDAO {
             this.stmtR = conn.prepareStatement(sqlR);
             this.stmtRMaS = conn.prepareStatement(sqlRMaS);
             this.stmtRMeS = conn.prepareStatement(sqlRMeS);
+            this.stmtRID = conn.prepareStatement(sqlRID);
             this.stmtU = conn.prepareStatement(sqlU);
             this.stmtD = conn.prepareStatement(sqlD);
         }catch(Exception e) {
@@ -44,6 +47,25 @@ public class ContaBancariaDAO {
         }
     }
     
+    
+    public ContaBancaria lerPorID(long ID) {
+        try{
+            this.stmtRID.setLong(1, ID);
+            ResultSet rs = this.stmtRID.executeQuery();
+            ContaBancaria contaBancaria = new ContaBancaria();
+            
+            while(rs.next()) {
+                contaBancaria.setId(rs.getInt("id"));
+                contaBancaria.setNomeTitular(rs.getString("nome_titular"));
+                contaBancaria.setSaldo(rs.getDouble("saldo"));
+                contaBancaria.setNumeroAgencia(rs.getString("numero_agencia"));
+            }
+            return contaBancaria;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     
     public List<ContaBancaria> lerTodos() {
         try{
