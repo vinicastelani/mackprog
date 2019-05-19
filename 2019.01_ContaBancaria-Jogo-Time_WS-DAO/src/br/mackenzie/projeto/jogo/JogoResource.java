@@ -27,7 +27,7 @@ public class JogoResource {
     public List<Jogo> read() {
         return dao.lerTodos();
     }
-    
+        
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, Jogo jogo) {

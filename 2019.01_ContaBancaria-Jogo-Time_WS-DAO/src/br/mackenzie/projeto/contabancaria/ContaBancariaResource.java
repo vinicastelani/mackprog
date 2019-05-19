@@ -57,8 +57,8 @@ public class ContaBancariaResource {
             return Response.ok().build();
         }
         
-        throw new WebApplicationException("Professor com id=" + idParam.get()
-                                          + " não encontrado!", 404);
+        throw new WebApplicationException("Bank account with the ID=" + idParam.get()
+                                          + " not found!", 404);
     }
     
     @DELETE

@@ -8,7 +8,9 @@ $(window).ready(function(){
     const botaoAtualizar = $('#submitAtualizar');
 
     $(botaoAtualizar).on("click",function(){
-        if (txtID.val() == '') return;
+        if (txtID.val() == ''){
+            failMessage('Please put a valid ID');
+        }
         const ID = txtID.val();
         const URL = `/api/conta-bancaria/${ID}`;
         const dadosContaBancaria = {
@@ -25,37 +27,72 @@ $(window).ready(function(){
         }
         };
         try {
-        fetch(URL, putRequest).then(response => resetar());
+            fetch(URL, putRequest).then(resposta => resetar(resposta));
         } catch (e) {
-        corpoTabela.innerHTML = e;
+            failMessage(`${e}`);
         }
     });
 
     $(botaoSelecionar).on("click",function(){
-        if (txtID.val() == '') return;
+        if (txtID.val() == ''){
+            failMessage('Please put a valid ID');
+        }
         const ID = txtID.val();
         const URL = `/api/conta-bancaria/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
         } catch (e) {
-            console.log(e);
+            failMessage(`${e}`);
         }
     });
 
     function preencherCampos(conta){
-        console.log(conta[0]);
+        if(conta.nomeTitular == null && conta.agencia == null && conta.saldo == null){
+            failMessage('Account not found, please put a valid ID');
+        }
         txtID.val(conta.id);
         txtNomeTitular.val(conta.nomeTitular);
         txtAgencia.val(conta.numeroAgencia);
         txtSaldo.val(conta.saldo);;
     }
 
-    function resetar(){
-        alert("Conta atualizada com sucesso!");
+    function resetar(res){
+        if(res.status == 404){
+            failMessage(`Account not found, please put a valid ID`);
+        } else if (res.status == 400){
+            failMessage('Invalid data, please make sure to fill all fields correctly')
+        } else {
+            successMessage('Account successfully updated');
+        }
+
         txtID.val("");
         txtNomeTitular.val("");
         txtSaldo.val("");
         txtAgencia.val("");
+    }
+
+    function failMessage(msg){
+        $("#update-fail-msg").text(`${msg}`);
+        $("#update-fail-status").removeClass("hide");
+        $("#update-fail-status").animate({top:'105%',opacity:1},1000);
+        setTimeout(function(){
+            $("#update-fail-status").addClass("hide");
+        },3000);
+        setTimeout(function(){
+            $("#update-fail-status").animate({top:'95%',opacity:0});
+        },3000);
+    }
+
+    function successMessage(msg){
+        $("#update-success-msg").text(`${msg}`);
+        $("#update-success-status").removeClass("hide");
+        $("#update-success-status").animate({top:'105%',opacity:1},1000);
+        setTimeout(function(){
+            $("#update-success-status").addClass("hide");
+        },3000);
+        setTimeout(function(){
+            $("#update-success-status").animate({top:'95%',opacity:0});
+        },3000);
     }
 
 });

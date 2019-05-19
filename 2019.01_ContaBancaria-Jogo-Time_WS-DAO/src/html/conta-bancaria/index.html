@@ -11,6 +11,8 @@
   <script src="js/read.js"></script>
   <script src="js/create.js"></script>
   <script src="js/update.js"></script>
+  <script src="js/delete.js"></script>
+
 </head>
 
 <nav class="navbar navbar-dark bg-dark">
@@ -69,8 +71,8 @@
                 <div class="col-ls-12 p-2"><input type="button" value="Cadastrar" id="submitCreate"></div>
               </div>
             </div>
-            <div class="col-12 p-2 success text-center absolute hide" id="success-status"><span id="success-msg"></span></div>
-            <div class="col-12 p-2 fail text-center absolute hide" id="fail-status"><span id="fail-msg"></span></div>
+            <div class="col-12 p-2 success text-center absolute hide" id="insert-success-status"><span id="insert-success-msg"></span></div>
+            <div class="col-12 p-2 fail text-center absolute hide" id="insert-fail-status"><span id="insert-fail-msg"></span></div>
           </div>
         </div>
       </div>
@@ -118,16 +120,16 @@
           <div class="row pt-1 justify-content-center">
             <div class="col-12 bgcolor-black">
               <div class="row">
-                <div class="col-6 p-2"><span class="textcolor-white ml-5">Saldo:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtSaldoUpdate" placeholder="R$" required></div>
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Ag&ecirc;ncia:</span></div>
+                <div class="col-6 p-2"><input type="text" id="txtAgenciaUpdate" placeholder="ex: 1234" required></div>
               </div>
             </div>
           </div>
           <div class="row pt-1 justify-content-center">
             <div class="col-12 bgcolor-black">
               <div class="row">
-                <div class="col-6 p-2"><span class="textcolor-white ml-5">Ag&ecirc;ncia:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtAgenciaUpdate" placeholder="ex: 1234" required></div>
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Saldo:</span></div>
+                <div class="col-6 p-2"><input type="text" id="txtSaldoUpdate" placeholder="R$" required></div>
               </div>
             </div>
           </div>
@@ -137,6 +139,8 @@
                 <div class="col-ls-12 p-2"><input type="button" value="Cadastrar" id="submitAtualizar" placeholder="ex: 1234" required></div>
               </div>
             </div>
+            <div class="col-12 p-2 success text-center absolute hide" id="update-success-status"><span id="update-success-msg"></span></div>
+            <div class="col-12 p-2 fail text-center absolute hide" id="update-fail-status"><span id="update-fail-msg"></span></div>
           </div>
         </div>
       </div>
@@ -165,19 +169,21 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
-                <div class="col-3 p-2"><input type="text" id="value-1" placeholder="ex: ID" required>
+                <div class="col-3 p-2"><input type="text" id="txtIdDelete" placeholder="ex: ID" required>
                 </div>
                 <div class="col-6 p-2">&nbsp;</div>
-                <div class="col-6 p-2"><input type="button" value="Buscar" id="submit" placeholder="ex: 1234" required>
+                <div class="col-6 p-2"><input type="button" value="Deletar" id="submitDelete" placeholder="ex: 1234" required>
                 </div>
               </div>
             </div>
+            <div class="col-12 p-2 success text-center absolute hide" id="delete-success-status"><span id="delete-success-msg"></span></div>
+            <div class="col-12 p-2 fail text-center absolute hide" id="delete-fail-status"><span id="delete-fail-msg"></span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- INSERT -->
+  <!-- DELETE -->
 
 
   <div class="container relative" id="main-panel">
