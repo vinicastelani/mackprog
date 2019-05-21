@@ -43,7 +43,7 @@ body{
 
 .footer {
   background-color: #343a40;
-  position: absolute;
+  position: relative;
   width:100%;
   bottom:0;
 }
