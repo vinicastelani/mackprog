@@ -9,7 +9,7 @@ $(window).ready(function(){
 
     $(botaoAtualizar).on("click",function(){
         if (txtID.val() == ''){
-            failMessage('Please put a valid ID');
+            failMessage('Por favor, insira um ID válido.');
         }
         const ID = txtID.val();
         const URL = `/api/conta-bancaria/${ID}`;
@@ -35,7 +35,7 @@ $(window).ready(function(){
 
     $(botaoSelecionar).on("click",function(){
         if (txtID.val() == ''){
-            failMessage('Please put a valid ID');
+            failMessage('Por favor, insira um ID válido.');
         }
         const ID = txtID.val();
         const URL = `/api/conta-bancaria/${ID}`;
@@ -48,7 +48,7 @@ $(window).ready(function(){
 
     function preencherCampos(conta){
         if(conta.nomeTitular == null && conta.agencia == null && conta.saldo == null){
-            failMessage('Account not found, please put a valid ID');
+            failMessage('Conta não encontrada, insira um ID válido');
         }
         txtID.val(conta.id);
         txtNomeTitular.val(conta.nomeTitular);
@@ -58,11 +58,11 @@ $(window).ready(function(){
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Account not found, please put a valid ID`);
+            failMessage(`Conta não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Invalid data, please make sure to fill all fields correctly')
+            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
         } else {
-            successMessage('Account successfully updated');
+            successMessage('Conta atualizada!');
         }
 
         txtID.val("");
