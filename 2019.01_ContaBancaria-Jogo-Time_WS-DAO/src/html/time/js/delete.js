@@ -5,7 +5,7 @@ $(window).ready(function(){
 
     $(botaoDeletar).on("click",function(){
         if (txtID.val() == ''){
-            failMessage('Please put a valid ID');
+            failMessage('Por favor, insira dados válidos!');
         }
         const ID = txtID.val();
         const URL = `/api/conta-bancaria/${ID}`;
@@ -45,11 +45,11 @@ $(window).ready(function(){
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Account not found, please put a valid ID`);
+            failMessage(`Conta não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Invalid data, please make sure to fill the ID correctly')
+            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
         } else {
-            successMessage('Account successfully deleted');
+            successMessage('Conta removida!');
         }
 
         txtID.val("");
