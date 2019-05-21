@@ -27,6 +27,16 @@ public class TimeResource {
         return dao.lerTodos();
     }
     
+    @GET
+    public List<Time> readALF() {
+        return dao.lerTodos();
+    }
+    
+    @GET
+    public List<Time> readMA() {
+        return dao.lerTodos();
+    }
+    
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, Time time) {

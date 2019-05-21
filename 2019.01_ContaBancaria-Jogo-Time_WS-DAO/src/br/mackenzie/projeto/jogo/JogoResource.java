@@ -1,5 +1,6 @@
 
 package br.mackenzie.projeto.jogo;
+import br.mackenzie.projeto.contabancaria.ContaBancaria;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import io.dropwizard.jersey.params.*;
@@ -21,6 +22,24 @@ public class JogoResource {
     public Jogo create(Jogo time) {
         Jogo p = dao.criar(time);
         return p;
+    }
+    
+    @GET
+    @Path("/mais-gols")
+    public List<Jogo> readMG() {
+        return dao.maisGols();
+    }
+    
+    @GET
+    @Path("/vitoria-mandante")
+    public List<Jogo> readVM() {
+        return dao.vitMandante();
+    }
+    
+    @GET
+    @Path("/jogos-empate")
+    public List<Jogo> readJE() {
+        return dao.jogosEmpate();
     }
     
     @GET

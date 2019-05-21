@@ -22,6 +22,9 @@ import java.util.List;
 public class TimeDAO {
     private PreparedStatement stmtC;
     private PreparedStatement stmtR;
+    private PreparedStatement stmtRALF;
+    private PreparedStatement stmtRMA;
+    private PreparedStatement stmtRSP;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
     
@@ -31,11 +34,15 @@ public class TimeDAO {
             
             String sqlC = "INSERT INTO time(nome, ano_fundacao,cidade, estado) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM time";
+            String sqlRALF = "SELECT * FROM time ORDER BY nome ASC";
+            String sqlRMA = "SELECT * FROM time ORDER BY ano_fundacao ASC";
+            String sqlRSP = "SELECT * FROM time WHERE estado = 'SP'";
             String sqlU = "UPDATE time SET nome=?, ano_fundacao=?, cidade=?, estado=? WHERE id=?";
             String sqlD = "DELETE FROM time WHERE id=?";
 
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
+            this.stmtRALF = conn.prepareStatement(sqlRALF);
             this.stmtU = conn.prepareStatement(sqlU);
             this.stmtD = conn.prepareStatement(sqlD);
         }catch(Exception e) {
