@@ -1,6 +1,5 @@
-body{background-image:url("../images/background.jpg");
+body{background-image:url("../images/background.png");
 background-size:cover;}
-
 /* PANELS */
 .panel{top:-40px;opacity:0;height:100%;}
 /* PANELS */
@@ -86,7 +85,12 @@ background-size:cover;}
 .textcolor-black{color:#000000;}
 /* FONT */
 /* MISC */
-.footer {background-color: #343a40;}
+.footer {
+  background-color: #343a40;
+  position: relative;
+  width:100%;
+  bottom:0;
+}
 .decoration-none{text-decoration:none!important; }
 .success{background:#2CED2C;border-radius:5px;}
 .fail{background:#B33A3A;border-radius:5px;}
@@ -96,4 +100,6 @@ background-size:cover;}
 .display-block{display: block !important;}
 .hide{display: none;}
 a:hover{color: #FFFFFF !important;}
+#resync-data{color:#FFFFFF;}
+#resync-data:hover{color:#0062ff !important; }
 /* MISC */

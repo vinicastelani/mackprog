@@ -30,13 +30,13 @@ $(window).ready(function(){
       txtNomeTitular.val("");
       txtSaldo.val("");
       txtAgencia.val("");
-      
+
       if(contaCadastrada.code != 500){
-          successMessage(`Account created with the ID:${contaCadastrada.id}`);
+          successMessage(`Conta criada com o ID:${contaCadastrada.id}`);
       } else {
-          failMessage(`Account criation failed, please put valid values`);
+          failMessage(`Falha na criação de conta, por favor, insira dados válidos`);
       }
-      
+
   }
 
   function failMessage(msg){
