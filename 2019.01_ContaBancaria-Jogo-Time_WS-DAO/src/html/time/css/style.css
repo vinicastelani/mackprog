@@ -1,5 +1,5 @@
-body{margin:0;height:100%;background-image:url("../images/background.jpg");
-background-size:cover;background-repeat:no-repeat;overflow: hidden;}
+body{background-image:url("../images/background.jpg");
+background-size:cover;}
 
 /* PANELS */
 .panel{top:-40px;opacity:0;height:100%;}
@@ -12,13 +12,13 @@ background-size:cover;background-repeat:no-repeat;overflow: hidden;}
 .exit:hover{background: red; transition: 0.5s}
 /* BG COLOR */
 /* TABLE */
-.tab{background:#FFFFFF;border-bottom:solid 2px #0062ff;}
-.tab:hover{background:#0062ff;color:#FFFFFF !important;}
-.tab-field{background:#0062ff;}
+.tab{background:#000000;border-bottom:solid 2px #000000;}
+.tab:hover{background:#FFFFFF;color:#000000 !important;}
+.tab-field{background:#000000;}
 .main-tab{height:180px;}
 .even{background:red;}
 .not-even{background:blue;}
-.active{background:#0062ff;color:#FFFFFF !important;}
+.active{background:#FFFFFF;color:#000000 !important;}
 /* TABLE */
 /* CARDS */
 .main-card{

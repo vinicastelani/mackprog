@@ -1,4 +1,5 @@
 $(window).ready(function(){
+
   setTimeout(function(){
     $(".banners").each(function(){
       $(this).animate({opacity:1},500);
@@ -29,7 +30,6 @@ $(window).ready(function(){
     var dataCard= $(this).data("panel");
     $(".panel").each(function(){
       var panel = $(this);
-      console.log(panel);
       if($(this).data("panel") == dataCard){
         //console.log("Card: " + dataCard + " Panel: " + $(this).data("panel"));
         $("#main-panel").animate({left:40, opacity:0},1000, function(){
@@ -47,12 +47,9 @@ $(window).ready(function(){
               $("#main-panel").animate({left:0,opacity:1},1000);
             });
         });
-
-
       }
     });
-  })
-
+  });
 
 
 });
