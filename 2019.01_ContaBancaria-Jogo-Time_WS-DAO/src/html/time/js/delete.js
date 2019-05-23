@@ -1,6 +1,6 @@
 $(window).ready(function(){
 
-    txtID = $('#txtIdDelete');
+    txtID = $('#dID');
     botaoDeletar = $('#dSubmit');
 
     $(botaoDeletar).on("click",function(){

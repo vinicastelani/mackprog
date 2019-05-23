@@ -1,6 +1,6 @@
 $(window).ready(function(){
 
-    txtID = $('#txtIdDelete');
+    txtID = $('#dID');
     botaoDeletar = $('#submitDelete');
 
     $(botaoDeletar).on("click",function(){
@@ -47,7 +47,7 @@ $(window).ready(function(){
         if(res.status == 404){
             failMessage(`Conta não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
+            failMessage('Falha na remoção de conta, por favor, insira dados válidos.')
         } else {
             successMessage('Conta removida!');
         }
