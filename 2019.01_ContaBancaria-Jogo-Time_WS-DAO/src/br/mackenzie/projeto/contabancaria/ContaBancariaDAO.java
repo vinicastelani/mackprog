@@ -33,8 +33,6 @@ public class ContaBancariaDAO {
             String sqlU = "UPDATE conta_bancaria SET nome_titular=?, saldo=? , numero_agencia=? WHERE id=?";
             String sqlD = "DELETE FROM conta_bancaria WHERE id=?";
             
-            // O segundo parametro indica que iremos precisar obter o id
-            // gerado automaticamente pelo banco
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
             this.stmtRMaS = conn.prepareStatement(sqlRMaS);

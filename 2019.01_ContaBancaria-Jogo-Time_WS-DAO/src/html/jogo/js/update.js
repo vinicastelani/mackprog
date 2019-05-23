@@ -1,11 +1,11 @@
 $(window).ready(function(){
-    const id = $('#uID');
+    const id = $('#uID'); 
     const mandante = $('#uMandante');
     const visitante = $('#uVisitante');
     const golsMandante = $('#uGolsMandante');
     const golsVisitante = $('#uGolsVisitante');
 
-   const botaoSelecionar = $('#selecionarConta');
+    const botaoSelecionar = $('#selecionarConta');
     const botaoAtualizar = $('#submitAtualizar');
 
     $(botaoAtualizar).on("click",function(){
@@ -13,7 +13,7 @@ $(window).ready(function(){
             failMessage('Por favor, insira um ID válido.');
         }
         const ID = id.val();
-        const URL = `/api/conta-bancaria/${ID}`;
+        const URL = `/api/jogo/${ID}`;
         const dadosJogo = {
             'id': ID,
             'nomeTimeA': mandante.val(),
@@ -40,6 +40,7 @@ $(window).ready(function(){
             failMessage('Por favor, insira um ID válido.');
         }
         const ID = id.val();
+        console.log(ID);
         const URL = `/api/jogo/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
@@ -56,7 +57,7 @@ $(window).ready(function(){
         mandante.val(jogo.nomeTimeA);
         golsMandante.val(jogo.golsTimeA);
         visitante.val(jogo.nomeTimeB);;
-        visitante.val(jogo.golsTimeB);;
+        golsVisitante.val(jogo.golsTimeB);;
     }
 
     function resetar(res){

@@ -45,7 +45,7 @@ $(window).ready(function(){
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Conta não encontrada, insira um ID válido`);
+            failMessage(`Clube não encontrado, insira um ID válido`);
         } else if (res.status == 400){
             failMessage('Falha na remoção do time, por favor, insira dados válidos.')
         } else {

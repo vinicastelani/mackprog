@@ -17,7 +17,7 @@ public class JogoDAO {
     private PreparedStatement stmtRMG;
     private PreparedStatement stmtRVM;
     private PreparedStatement stmtRJE;
-     private PreparedStatement stmtRID;
+    private PreparedStatement stmtRID;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
     
@@ -27,15 +27,16 @@ public class JogoDAO {
             
             String sqlC = "INSERT INTO jogo(nome_time_a, nome_time_b,gols_time_a, gols_time_b) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM jogo";
-            String sqlRID = "SELECT * FROM conta_bancaria WHERE id=?";
+            String sqlRID = "SELECT * FROM jogo WHERE id=?";
             String sqlRMG = "SELECT * FROM jogo ORDER BY (gols_time_a + gols_time_b) DESC";
-            String sqlRVM = "SELECT * FROM jogo WHERE gols_time_a > gols_time_b";
+            String sqlRVM = "SELECT * FROM jogo WHERE gols_time_a < gols_time_b";
             String sqlRJE = "SELECT * FROM jogo WHERE gols_time_a = gols_time_b";
             String sqlU = "UPDATE jogo SET nome_time_a =?, nome_time_b=?,gols_time_a=?, gols_time_b=? WHERE id=?";
             String sqlD = "DELETE FROM jogo WHERE id=?";
 
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
+            this.stmtRID = conn.prepareStatement(sqlRID);
             this.stmtRMG = conn.prepareStatement(sqlRMG);
             this.stmtRVM = conn.prepareStatement(sqlRVM);
             this.stmtRJE = conn.prepareStatement(sqlRJE);
@@ -46,7 +47,7 @@ public class JogoDAO {
         }
     }
     
-        public Jogo lerPorID(long ID) {
+    public Jogo lerPorID(long ID) {
         try{
             this.stmtRID.setLong(1, ID);
             ResultSet rs = this.stmtRID.executeQuery();

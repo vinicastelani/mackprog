@@ -12,8 +12,8 @@ $(window).ready(function(){
       '<div class="col-1 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + jogo.id + '</b></p></div>' +
       '<div class="col-2 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + jogo.nomeTimeA + '</b></p></div>' +
       '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + jogo.nomeTimeB + '</b></p></div>' +
-      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b> R$ ' + jogo.golsTimeA + '</b></p></div>';
-      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b> R$ ' + jogo.golsTimeB + '</b></p></div>';
+      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + jogo.golsTimeA + '</b></p></div>' +
+      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + jogo.golsTimeB + '</b></p></div>';
     }
     tabContas.innerHTML = linhasTabela;
     //contadorParagrafo.innerHTML = n + ' ' + (n == 1 ? 'conta' : 'contas');
@@ -21,7 +21,7 @@ $(window).ready(function(){
   async function listarJogos() {
     const URL = `/api/jogo`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 1));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 0));
     } catch (e) {
       corpoTabela.innerHTML = e;
     }
