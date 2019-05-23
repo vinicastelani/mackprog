@@ -47,9 +47,9 @@ $(window).ready(function(){
         if(res.status == 404){
             failMessage(`Clube não encontrado, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na remoção do time, por favor, insira dados válidos.')
+            failMessage('Falha na remoção do Clube, por favor, insira dados válidos.')
         } else {
-            successMessage('Time removido!');
+            successMessage('Clube removido!');
         }
 
         txtID.val("");

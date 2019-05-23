@@ -36,7 +36,7 @@ $(window).ready(function(){
       if(timeCadastrado.code != 500){
           successMessage(`Conta criada com o ID:${timeCadastrado.id}`);
       } else {
-          failMessage(`Falha na criação do time, por favor, insira dados válidos`);
+          failMessage(`Falha na criação do Clube, por favor, insira dados válidos`);
       }
 
   }
