@@ -22,6 +22,7 @@ import java.util.List;
 public class TimeDAO {
     private PreparedStatement stmtC;
     private PreparedStatement stmtR;
+    private PreparedStatement stmtRID;
     private PreparedStatement stmtRALF;
     private PreparedStatement stmtRMA;
     private PreparedStatement stmtRSP;
@@ -34,6 +35,7 @@ public class TimeDAO {
             
             String sqlC = "INSERT INTO time(nome, ano_fundacao,cidade, estado) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM time";
+            String sqlRID = "SELECT * FROM time WHERE id=?";
             String sqlRALF = "SELECT * FROM time ORDER BY nome ASC";
             String sqlRMA = "SELECT * FROM time ORDER BY cidade ASC";
             String sqlRSP = "SELECT * FROM time ORDER BY estado DESC";
@@ -42,6 +44,7 @@ public class TimeDAO {
 
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
+            this.stmtRID = conn.prepareStatement(sqlRID);
             this.stmtRALF = conn.prepareStatement(sqlRALF);
             this.stmtRMA = conn.prepareStatement(sqlRMA);
             this.stmtRSP = conn.prepareStatement(sqlRSP);
@@ -130,6 +133,26 @@ public class TimeDAO {
                 times.add(aux);
             }
             return times;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+     
+    public Time lerPorID(long ID) {
+        try{
+            this.stmtRID.setLong(1, ID);
+            ResultSet rs = this.stmtRID.executeQuery();
+            Time time = new Time();
+            
+            while(rs.next()) {
+                time.setId(rs.getInt("id"));
+                time.setNome(rs.getString("nome"));
+                time.setAnoFundacao(rs.getString("ano_fundacao"));
+                time.setCidade(rs.getString("cidade"));
+                time.setEstado(rs.getString("estado"));
+            }
+            return time;
         }catch(SQLException e){
             e.printStackTrace();
         }

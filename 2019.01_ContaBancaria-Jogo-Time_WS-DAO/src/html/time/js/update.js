@@ -3,7 +3,7 @@ $(window).ready(function(){
   const data = $("#uData");
   const cidade = $("#uCidade");
   const estado = $("#uEstado");
-  const id = $('#uID');
+    const id = $('#uID');
 
     const botaoSelecionar = $('#uBuscar');
     const botaoAtualizar = $('#uSubmit');
@@ -17,7 +17,7 @@ $(window).ready(function(){
         const dadosTime = {
             'id': ID,
             'nome': nome.val(),
-            'ano_fundacao': data.val(),
+            'anoFundacao': data.val(),
             'cidade': cidade.val(),
             'estado': estado.val()
         };
@@ -36,10 +36,10 @@ $(window).ready(function(){
     });
 
     $(botaoSelecionar).on("click",function(){
-        if (txtID.val() == ''){
+        if (id.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = txtID.val();
+        const ID = id.val();
         const URL = `/api/time/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
@@ -49,12 +49,14 @@ $(window).ready(function(){
     });
 
     function preencherCampos(time){
+
+        console.log(time);
         if(time.nome == null && time.data == null && time.cidade == null && time.estado == null){
             failMessage('Conta não encontrada, insira um ID válido');
         }
         id.val(time.id);
         nome.val(time.nome);
-        data.val(time.ano_fundacao);;
+        data.val(time.anoFundacao);
         cidade.val(time.cidade);
         estado.val(time.estado);
     }

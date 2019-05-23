@@ -36,13 +36,19 @@ public class TimeResource {
     @GET
     @Path("/mais-antigo")
     public List<Time> readMA() {
-        return dao.lerTodos();
+        return dao.lerMaisAntigo();
     }
     
     @GET
     @Path("/times-sp")
     public List<Time> readSP() {
-        return dao.lerTodos();
+        return dao.lerTimeSP();
+    }
+    
+    @GET
+    @Path("/{id}")
+    public Time readID(@PathParam("id") LongParam idParam) {
+        return dao.lerPorID(idParam.get());
     }
     
     @PUT
