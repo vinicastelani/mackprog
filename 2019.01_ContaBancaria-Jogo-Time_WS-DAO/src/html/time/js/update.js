@@ -1,27 +1,29 @@
 $(window).ready(function(){
-    const txtNomeTitular = $('#txtNomeTitularUpdate');
-    const txtAgencia = $('#txtAgenciaUpdate');
-    const txtSaldo = $('#txtSaldoUpdate');
-    const txtID = $('#txtIdUpdate');
+  const nome = $("#uNome");
+  const data = $("#uData");
+  const cidade = $("#uCidade");
+  const estado = $("#uEstado");
+  const id = $('#uID');
 
-    const botaoSelecionar = $('#selecionarConta');
-    const botaoAtualizar = $('#submitAtualizar');
+    const botaoSelecionar = $('#uBuscar');
+    const botaoAtualizar = $('#uSubmit');
 
     $(botaoAtualizar).on("click",function(){
-        if (txtID.val() == ''){
+        if (id.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = txtID.val();
-        const URL = `/api/conta-bancaria/${ID}`;
-        const dadosContaBancaria = {
+        const ID = id.val();
+        const URL = `/api/time/${ID}`;
+        const dadosTime = {
             'id': ID,
-            'nomeTitular': txtNomeTitular.val(),
-            'saldo': txtSaldo.val(),
-            'numeroAgencia': txtAgencia.val()
+            'nome': nome.val(),
+            'ano_fundacao': data.val(),
+            'cidade': cidade.val(),
+            'estado': estado.val()
         };
         const putRequest = {
         method: 'PUT',
-        body: JSON.stringify(dadosContaBancaria),
+        body: JSON.stringify(dadosTime),
         headers: {
             'Content-type': 'application/json;charset=UTF-8'
         }
@@ -38,7 +40,7 @@ $(window).ready(function(){
             failMessage('Por favor, insira um ID válido.');
         }
         const ID = txtID.val();
-        const URL = `/api/conta-bancaria/${ID}`;
+        const URL = `/api/time/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
         } catch (e) {
@@ -46,29 +48,31 @@ $(window).ready(function(){
         }
     });
 
-    function preencherCampos(conta){
-        if(conta.nomeTitular == null && conta.agencia == null && conta.saldo == null){
+    function preencherCampos(time){
+        if(time.nome == null && time.data == null && time.cidade == null && time.estado == null){
             failMessage('Conta não encontrada, insira um ID válido');
         }
-        txtID.val(conta.id);
-        txtNomeTitular.val(conta.nomeTitular);
-        txtAgencia.val(conta.numeroAgencia);
-        txtSaldo.val(conta.saldo);;
+        id.val(time.id);
+        nome.val(time.nome);
+        data.val(time.ano_fundacao);;
+        cidade.val(time.cidade);
+        estado.val(time.estado);
     }
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Conta não encontrada, insira um ID válido`);
+            failMessage(`Clube não encontrado, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
+            failMessage('Falha na criação de Clube, por favor, insira dados válidos.')
         } else {
-            successMessage('Conta atualizada!');
+            successMessage('Clube atualizado!');
         }
 
-        txtID.val("");
-        txtNomeTitular.val("");
-        txtSaldo.val("");
-        txtAgencia.val("");
+        id.val("");
+        nome.val("");
+        data.val("");
+        cidade.val("");
+        estado.val("");
     }
 
     function failMessage(msg){

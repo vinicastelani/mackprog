@@ -1,20 +1,21 @@
 $(window).ready(function(){
 
-  var txtNomeTitular = $("#txtNomeTitularCreate");
-  var txtAgencia = $("#txtAgenciaCreate");
-  var txtSaldo = $("#txtSaldoCreate");
-  var submit = $("#submitCreate");
+  var nome = $("#cNome");
+  var data = $("#cData");
+  var cidade = $("#cCidade");
+  var estado = $("#cEstado");
 
   $(submit).on("click",function(){
-    const URL = `/api/conta-bancaria`;
-    const dadosContaBancaria = {
-      'nomeTitular': txtNomeTitular.val(),
-      'saldo': txtSaldo.val(),
-      'numeroAgencia': txtAgencia.val()
+    const URL = `/api/time`;
+    const dadosTime = {
+      'nome': nome.val(),
+      'ano_fundacao': data.val(),
+      'cidade': cidade.val(),
+      'estado': estado.val()
     };
     const postRequest = {
       method: 'POST',
-      body: JSON.stringify(dadosContaBancaria),
+      body: JSON.stringify(dadosTime),
       headers: {
         'Content-type': 'application/json;charset=UTF-8'
       }
@@ -26,15 +27,16 @@ $(window).ready(function(){
     }
   });
 
-  function mostrarMensagem(contaCadastrada) {
-      txtNomeTitular.val("");
-      txtSaldo.val("");
-      txtAgencia.val("");
+  function mostrarMensagem(timeCadastrado) {
+      nome.val("");
+      data.val("");
+      cidade.val("");
+      estado.val("");
 
-      if(contaCadastrada.code != 500){
-          successMessage(`Conta criada com o ID:${contaCadastrada.id}`);
+      if(timeCadastrado.code != 500){
+          successMessage(`Conta criada com o ID:${timeCadastrado.id}`);
       } else {
-          failMessage(`Falha na criação de conta, por favor, insira dados válidos`);
+          failMessage(`Falha na criação do time, por favor, insira dados válidos`);
       }
 
   }
