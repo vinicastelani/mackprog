@@ -1,17 +1,18 @@
 $(window).ready(function(){
 
-  var nomeMandante = $("#cMandante");
-  var nomeVisitante = $("#cVisitante");
-  var golsMandante = $("#cGolsMandante");
-  var golsVisitante = $("#cGolsVisitante");
+  var txtNomeMandante = $("#txtMandanteCreate");
+  var txtNomeVisitante = $("#txtVisitanteCreate");
+  var txtGolsMandante = $("#txtGolsMandanteCreate");
+  var txtGolsVisitante = $("#txtGolsVisitanteCreate");
+  var submit = $("#submitCreate");
 
   $(submit).on("click",function(){
     const URL = `/api/jogo`;
     const dadosJogo = {
-      'nome_time_a': nomeMandante.val(),
-      'nome_time_b': nomeVisitante.val(),
-      'gols_time_a': golsMandante.val(),
-      'gols_time_b': golsVisitante.val()
+      'nomeTimeA': txtNomeMandante.val(),
+      'nomeTimeB': txtNomeVisitante.val(),
+      'golsTimeA': txtGolsMandante.val(),
+      'golsTimeB': txtGolsVisitante.val()
     };
     const postRequest = {
       method: 'POST',
@@ -27,14 +28,14 @@ $(window).ready(function(){
     }
   });
 
-  function mostrarMensagem(dadosJogo) {
-      nomeMandante.val("");
-      nomeVisitante.val("");
-      golsMandante.val("");
-      golsVisitante.val("");
+  function mostrarMensagem(jogoCadastrado) {
+      txtNomeMandante.val("");
+      txtNomeVisitante.val("");
+      txtGolsMandante.val("");
+      txtGolsVisitante.val("");
 
-      if(contaCadastrada.code != 500){
-          successMessage(`Partida criada com o ID:${dadosJogo.id}`);
+      if(jogoCadastrado.code != 500){
+          successMessage(`Partida criada com o ID:${jogoCadastrado.id}`);
       } else {
           failMessage(`Falha na criação da partida, por favor, insira dados válidos`);
       }

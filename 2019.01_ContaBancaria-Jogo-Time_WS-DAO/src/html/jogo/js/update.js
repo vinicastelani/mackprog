@@ -5,8 +5,8 @@ $(window).ready(function(){
     const golsMandante = $('#uGolsMandante');
     const golsVisitante = $('#uGolsVisitante');
 
-    const botaoSelecionar = $('#uBuscar');
-    const botaoAtualizar = $('#uSubmit');
+   const botaoSelecionar = $('#selecionarConta');
+    const botaoAtualizar = $('#submitAtualizar');
 
     $(botaoAtualizar).on("click",function(){
         if (id.val() == ''){

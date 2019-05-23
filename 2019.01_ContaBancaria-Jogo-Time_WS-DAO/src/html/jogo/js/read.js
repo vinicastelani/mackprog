@@ -2,7 +2,7 @@ $(window).ready(function(){
 
   const resync = document.querySelector('#resync-data');
   //const contadorParagrafo = document.querySelector('#contador');
-  function preencherTabela(jogo, dataTab) {
+  function preencherTabela(jogos, dataTab) {
     const tabContas = document.querySelector(`#tab${dataTab}`);
     var linhasTabela = '';
     var n = jogos.length;

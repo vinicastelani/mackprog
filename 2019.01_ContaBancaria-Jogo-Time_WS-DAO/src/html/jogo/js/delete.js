@@ -1,13 +1,13 @@
 $(window).ready(function(){
 
-    id = $('#dID');
-    botaoDeletar = $('#dSubmit');
+    txtID = $('#txtIdDelete');
+    botaoDeletar = $('#submitDelete');
 
     $(botaoDeletar).on("click",function(){
         if (txtID.val() == ''){
             failMessage('Por favor, insira dados válidos!');
         }
-        const ID = id.val();
+        const ID = txtID.val();
         const URL = `/api/jogo/${ID}`;
         const deleteRequest = {
           method: 'DELETE'
