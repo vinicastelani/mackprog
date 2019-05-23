@@ -28,12 +28,20 @@ public class TimeResource {
     }
     
     @GET
+    @Path("/ordem-alfabetica")
     public List<Time> readALF() {
+        return dao.lerAlf();
+    }
+    
+    @GET
+    @Path("/mais-antigo")
+    public List<Time> readMA() {
         return dao.lerTodos();
     }
     
     @GET
-    public List<Time> readMA() {
+    @Path("/times-sp")
+    public List<Time> readSP() {
         return dao.lerTodos();
     }
     

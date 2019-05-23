@@ -43,6 +43,8 @@ public class TimeDAO {
             this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
             this.stmtRALF = conn.prepareStatement(sqlRALF);
+            this.stmtRMA = conn.prepareStatement(sqlRMA);
+            this.stmtRSP = conn.prepareStatement(sqlRSP);
             this.stmtU = conn.prepareStatement(sqlU);
             this.stmtD = conn.prepareStatement(sqlD);
         }catch(Exception e) {
@@ -53,6 +55,69 @@ public class TimeDAO {
      public List<Time> lerTodos() {
         try{
             ResultSet rs = this.stmtR.executeQuery();
+            List<Time> times = new ArrayList<>();
+            
+            while(rs.next()) {
+                Time aux = new Time();
+                aux.setId(rs.getInt("id"));
+                aux.setNome(rs.getString("nome"));
+                aux.setAnoFundacao(rs.getString("ano_fundacao"));
+                aux.setCidade(rs.getString("cidade"));
+                aux.setEstado(rs.getString("estado"));
+                times.add(aux);
+            }
+            return times;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+     
+     public List<Time> lerAlf() {
+        try{
+            ResultSet rs = this.stmtRALF.executeQuery();
+            List<Time> times = new ArrayList<>();
+            
+            while(rs.next()) {
+                Time aux = new Time();
+                aux.setId(rs.getInt("id"));
+                aux.setNome(rs.getString("nome"));
+                aux.setAnoFundacao(rs.getString("ano_fundacao"));
+                aux.setCidade(rs.getString("cidade"));
+                aux.setEstado(rs.getString("estado"));
+                times.add(aux);
+            }
+            return times;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+     
+     public List<Time> lerMaisAntigo() {
+        try{
+            ResultSet rs = this.stmtRMA.executeQuery();
+            List<Time> times = new ArrayList<>();
+            
+            while(rs.next()) {
+                Time aux = new Time();
+                aux.setId(rs.getInt("id"));
+                aux.setNome(rs.getString("nome"));
+                aux.setAnoFundacao(rs.getString("ano_fundacao"));
+                aux.setCidade(rs.getString("cidade"));
+                aux.setEstado(rs.getString("estado"));
+                times.add(aux);
+            }
+            return times;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+     
+     public List<Time> lerTimeSP() {
+        try{
+            ResultSet rs = this.stmtRSP.executeQuery();
             List<Time> times = new ArrayList<>();
             
             while(rs.next()) {
