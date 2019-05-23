@@ -1,25 +1,25 @@
 $(window).ready(function(){
-  const nome = $("#uNome");
-  const data = $("#uData");
-  const cidade = $("#uCidade");
-  const estado = $("#uEstado");
-    const id = $('#uID');
+  const txtNome = $("#txtNomeUpdate");
+  const txtData = $("#txtDataUpdate");
+  const txtCidade = $("#txtCidadeUpdate");
+  const txtEstado = $("#txtEstadoUpdate");
+  const txtID = $('#txtIdUpdate');
 
-    const botaoSelecionar = $('#uBuscar');
-    const botaoAtualizar = $('#uSubmit');
+    const botaoSelecionar = $('#selecionarConta');
+    const botaoAtualizar = $('#submitAtualizar');
 
     $(botaoAtualizar).on("click",function(){
-        if (id.val() == ''){
+        if (txtID.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = id.val();
+        const ID = txtID.val();
         const URL = `/api/time/${ID}`;
         const dadosTime = {
             'id': ID,
-            'nome': nome.val(),
-            'anoFundacao': data.val(),
-            'cidade': cidade.val(),
-            'estado': estado.val()
+            'nome': txtNome.val(),
+            'ano_fundacao': txtData.val(),
+            'cidade': txtCidade.val(),
+            'estado': txtEstado.val()
         };
         const putRequest = {
         method: 'PUT',
@@ -36,10 +36,10 @@ $(window).ready(function(){
     });
 
     $(botaoSelecionar).on("click",function(){
-        if (id.val() == ''){
+        if (txtID.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = id.val();
+        const ID = txtID.val();
         const URL = `/api/time/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
@@ -49,16 +49,14 @@ $(window).ready(function(){
     });
 
     function preencherCampos(time){
-
-        console.log(time);
         if(time.nome == null && time.data == null && time.cidade == null && time.estado == null){
             failMessage('Conta não encontrada, insira um ID válido');
         }
-        id.val(time.id);
-        nome.val(time.nome);
-        data.val(time.anoFundacao);
-        cidade.val(time.cidade);
-        estado.val(time.estado);
+        txtID.val(time.id);
+        txtNome.val(time.nome);
+        txtData.val(time.ano_fundacao);;
+        txtCidade.val(time.cidade);
+        txtEstado.val(time.estado);
     }
 
     function resetar(res){
@@ -70,11 +68,11 @@ $(window).ready(function(){
             successMessage('Clube atualizado!');
         }
 
-        id.val("");
-        nome.val("");
-        data.val("");
-        cidade.val("");
-        estado.val("");
+        txtID.val("");
+        txtNome.val("");
+        txtData.val("");
+        txtCidade.val("");
+        txtEstado.val("");
     }
 
     function failMessage(msg){

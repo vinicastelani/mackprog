@@ -1,7 +1,7 @@
 $(window).ready(function(){
 
-    id = $('#dID');
-    botaoDeletar = $('#dSubmit');
+    txtID = $('#txtIdDelete');
+    botaoDeletar = $('#submitDelete');
 
     $(botaoDeletar).on("click",function(){
         if (txtID.val() == ''){
