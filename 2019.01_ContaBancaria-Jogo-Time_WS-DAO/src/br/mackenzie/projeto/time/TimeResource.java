@@ -51,6 +51,12 @@ public class TimeResource {
         return dao.lerPorID(idParam.get());
     }
     
+    @GET
+    @Path("/{id}")
+    public Time readID(@PathParam("id") LongParam idParam) {
+        return dao.lerPorID(idParam.get());
+    }
+    
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, Time time) {

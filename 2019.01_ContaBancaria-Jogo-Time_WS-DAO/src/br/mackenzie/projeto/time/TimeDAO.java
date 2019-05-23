@@ -28,6 +28,7 @@ public class TimeDAO {
     private PreparedStatement stmtRSP;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
+    private PreparedStatement stmtRID;
     
     public TimeDAO(ConexaoJavaDB conexao) {
         try {
@@ -38,6 +39,7 @@ public class TimeDAO {
             String sqlRID = "SELECT * FROM time WHERE id=?";
             String sqlRALF = "SELECT * FROM time ORDER BY nome ASC";
             String sqlRMA = "SELECT * FROM time ORDER BY cidade ASC";
+             String sqlRID = "SELECT * FROM conta_bancaria WHERE id=?";
             String sqlRSP = "SELECT * FROM time ORDER BY estado DESC";
             String sqlU = "UPDATE time SET nome=?, ano_fundacao=?, cidade=?, estado=? WHERE id=?";
             String sqlD = "DELETE FROM time WHERE id=?";
@@ -55,6 +57,25 @@ public class TimeDAO {
         }
     }
     
+    public Time lerPorID(long ID) {
+        try{
+            this.stmtRID.setLong(1, ID);
+            ResultSet rs = this.stmtRID.executeQuery();
+            Time time = new Time();
+            
+            while(rs.next()) {
+                time.setId(rs.getInt("id"));
+                time.setNome(rs.getString("nome"));
+                time.setAnoFundacao(rs.getString("ano_fundacao"));
+                time.setCidade(rs.getString("cidade"));
+                 time.setEstado(rs.getString("estado"));
+            }
+            return time;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
      public List<Time> lerTodos() {
         try{
             ResultSet rs = this.stmtR.executeQuery();
