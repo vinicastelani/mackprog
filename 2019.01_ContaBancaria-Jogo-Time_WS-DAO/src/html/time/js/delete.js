@@ -1,7 +1,7 @@
 $(window).ready(function(){
 
     txtID = $('#txtIdDelete');
-    botaoDeletar = $('#submitDelete');
+    botaoDeletar = $('#dSubmit');
 
     $(botaoDeletar).on("click",function(){
         if (txtID.val() == ''){
@@ -47,7 +47,7 @@ $(window).ready(function(){
         if(res.status == 404){
             failMessage(`Conta não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na criação do time, por favor, insira dados válidos.')
+            failMessage('Falha na remoção do time, por favor, insira dados válidos.')
         } else {
             successMessage('Time removido!');
         }
