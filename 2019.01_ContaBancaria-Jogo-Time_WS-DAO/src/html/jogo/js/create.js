@@ -10,7 +10,7 @@ $(window).ready(function(){
     const dadosJogo = {
       'nome_time_a': nomeMandante.val(),
       'nome_time_b': nomeVisitante.val(),
-      'gols_time_a': golsMandante.val()
+      'gols_time_a': golsMandante.val(),
       'gols_time_b': golsVisitante.val()
     };
     const postRequest = {

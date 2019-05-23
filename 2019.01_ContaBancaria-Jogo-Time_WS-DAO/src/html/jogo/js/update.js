@@ -18,7 +18,7 @@ $(window).ready(function(){
             'id': ID,
             'nomeTimeA': mandante.val(),
             'nomeTimeB': visitante.val(),
-            'golsTimeA': golsMandante.val()
+            'golsTimeA': golsMandante.val(),
             'golsTimeB': golsVisitante.val()
         };
         const putRequest = {

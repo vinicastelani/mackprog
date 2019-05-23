@@ -26,16 +26,24 @@ $(window).ready(function(){
       corpoTabela.innerHTML = e;
     }
   }
-  async function listar() {
-    const URL = `/api/conta-bancaria/maior-saldo`;
+  async function listarQtdGols() {
+    const URL = `/api/jogo/mais-gols`;
     try {
       fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 2));
     } catch (e) {
       corpoTabelaMaS.innerHTML = e;
     }
   }
-  async function listarContasMeS() {
-    const URL = `/api/conta-bancaria/menor-saldo`;
+  async function listarVitoriaMandante() {
+    const URL = `/api/jogo/vitoria-mandante`;
+    try {
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 3));
+    } catch (e) {
+      corpoTabelaMeS.innerHTML = e;
+    }
+  }
+  async function listarJogosEmpate() {
+    const URL = `/api/jogo/jogos-empate`;
     try {
       fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 3));
     } catch (e) {
@@ -43,14 +51,14 @@ $(window).ready(function(){
     }
   }
 
-  listarContas();
-  listarContasMaS();
-  listarContasMeS();
+  listarQtdGols();
+  listarVitoriaMandante();
+  listarJogosEmpate();
 
   $(resync).on("click",function(){
-    listarContas();
-    listarContasMaS();
-    listarContasMeS();
+    listarQtdGols();
+    listarVitoriaMandante();
+    listarJogosEmpate();
   });
 
 });
