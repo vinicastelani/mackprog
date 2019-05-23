@@ -47,6 +47,12 @@ public class JogoResource {
         return dao.lerTodos();
     }
         
+     @GET
+    @Path("/{id}")
+    public Jogo  readID(@PathParam("id") LongParam idParam) {
+        return dao.lerPorID(idParam.get());
+    }
+    
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") LongParam idParam, Jogo jogo) {

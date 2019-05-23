@@ -17,6 +17,7 @@ public class JogoDAO {
     private PreparedStatement stmtRMG;
     private PreparedStatement stmtRVM;
     private PreparedStatement stmtRJE;
+     private PreparedStatement stmtRID;
     private PreparedStatement stmtU;
     private PreparedStatement stmtD;
     
@@ -26,6 +27,7 @@ public class JogoDAO {
             
             String sqlC = "INSERT INTO jogo(nome_time_a, nome_time_b,gols_time_a, gols_time_b) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM jogo";
+            String sqlRID = "SELECT * FROM conta_bancaria WHERE id=?";
             String sqlRMG = "SELECT * FROM jogo ORDER BY (gols_time_a + gols_time_b) DESC";
             String sqlRVM = "SELECT * FROM jogo WHERE gols_time_a > gols_time_b";
             String sqlRJE = "SELECT * FROM jogo WHERE gols_time_a = gols_time_b";
@@ -44,6 +46,26 @@ public class JogoDAO {
         }
     }
     
+        public Jogo lerPorID(long ID) {
+        try{
+            this.stmtRID.setLong(1, ID);
+            ResultSet rs = this.stmtRID.executeQuery();
+            Jogo jogo = new Jogo();
+            
+            while(rs.next()) {
+                jogo.setId(rs.getInt("id"));
+                jogo.setNomeTimeA(rs.getString("nome_time_a"));
+                jogo.setNomeTimeB(rs.getString("nome_time_b"));
+                jogo.setGolsTimeA(rs.getInt("gols_time_a"));
+                jogo.setGolsTimeB(rs.getInt("gols_time_b"));
+            }
+            return jogo;
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+        
      public List<Jogo> lerTodos() {
         try{
             ResultSet rs = this.stmtR.executeQuery();
@@ -137,7 +159,7 @@ public class JogoDAO {
             this.stmtC.executeUpdate();
             ResultSet rs = this.stmtC.getGeneratedKeys();
             rs.next();
-            long id = rs.getLong(1);
+            int  id = rs.getInt(1);
             jogo.setId(id);
             return jogo;
         } catch (Exception e) {
