@@ -5,11 +5,11 @@ $(window).ready(function(){
   var cidade = $("#cCidade");
   var estado = $("#cEstado");
 
-  $(submit).on("click",function(){
+  $(cSubmit).on("click",function(){
     const URL = `/api/time`;
     const dadosTime = {
       'nome': nome.val(),
-      'ano_fundacao': data.val(),
+      'anoFundacao': data.val(),
       'cidade': cidade.val(),
       'estado': estado.val()
     };

@@ -5,23 +5,23 @@ $(window).ready(function(){
   function preencherTabela(times, dataTab) {
     const tabTimes = document.querySelector(`#tab${dataTab}`);
     var linhasTabela = '';
-    var n = contas.length;
+    var n = times.length;
     for (var i = 0; i < n; i++) {
       var time = times[i];
       linhasTabela +=
       '<div class="col-2 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.id + '</b></p></div>' +
       '<div class="col-2 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.nome + '</b></p></div>' +
-      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.data + '</b></p></div>' +
+      '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.anoFundacao + '</b></p></div>' +
       '<div class="col-3 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.cidade + '</b></p></div>' +
-      '<div class="col-2 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b> R$ ' + time.estado + '</b></p></div>';
+      '<div class="col-2 tab-field textcolor-white"><p class="text-center padding-top-5 textcolor-white"><b>' + time.estado + '</b></p></div>';
     }
-    tabContas.innerHTML = linhasTabela;
+    tabTimes.innerHTML = linhasTabela;
     //contadorParagrafo.innerHTML = n + ' ' + (n == 1 ? 'conta' : 'contas');
   }
   async function listarContas() {
     const URL = `/api/time`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 1));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 0));
     } catch (e) {
       corpoTabela.innerHTML = e;
     }
@@ -29,7 +29,7 @@ $(window).ready(function(){
   async function listarTimesAlfabetica() {
     const URL = `/api/time/ordem-alfabetica`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 2));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 1));
     } catch (e) {
       corpoTabelaMaS.innerHTML = e;
     }
@@ -37,7 +37,7 @@ $(window).ready(function(){
   async function listarTimesAntigos() {
     const URL = `/api/time/mais-antigo`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 3));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 2));
     } catch (e) {
       corpoTabelaMeS.innerHTML = e;
     }

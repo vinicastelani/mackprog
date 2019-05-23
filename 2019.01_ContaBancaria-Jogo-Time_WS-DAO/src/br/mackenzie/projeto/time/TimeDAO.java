@@ -35,8 +35,8 @@ public class TimeDAO {
             String sqlC = "INSERT INTO time(nome, ano_fundacao,cidade, estado) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM time";
             String sqlRALF = "SELECT * FROM time ORDER BY nome ASC";
-            String sqlRMA = "SELECT * FROM time ORDER BY ano_fundacao ASC";
-            String sqlRSP = "SELECT * FROM time WHERE estado = 'SP'";
+            String sqlRMA = "SELECT * FROM time ORDER BY cidade ASC";
+            String sqlRSP = "SELECT * FROM time ORDER BY estado DESC";
             String sqlU = "UPDATE time SET nome=?, ano_fundacao=?, cidade=?, estado=? WHERE id=?";
             String sqlD = "DELETE FROM time WHERE id=?";
 
