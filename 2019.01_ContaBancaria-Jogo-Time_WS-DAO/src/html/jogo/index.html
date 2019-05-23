@@ -45,7 +45,7 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Mandante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtNomeTitularCreate"  ></div>
+                <div class="col-6 p-2"><input type="text" id="cMandante"  ></div>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Visitante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtAgenciaCreate"  ></div>
+                <div class="col-6 p-2"><input type="text" id="cVisitante"  ></div>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols do Mandante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtSaldoCreate" ></div>
+                <div class="col-6 p-2"><input type="text" id="cGolsMandante" ></div>
               </div>
             </div>
           </div>
@@ -69,14 +69,14 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols do Visitante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtSaldoCreate" ></div>
+                <div class="col-6 p-2"><input type="text" id="cGolsVisitante" ></div>
               </div>
             </div>
           </div>
           <div class="row pt-1 justify-content-center">
             <div class="col-12 bgcolor-black">
               <div class="row justify-content-center">
-                <div class="col-ls-12 p-2"><input type="button" value="Criar" id="submitCreate"></div>
+                <div class="col-ls-12 p-2"><input type="button" value="Criar" id="cSubmit"></div>
               </div>
             </div>
             <div class="col-12 p-2 success text-center absolute hide" id="insert-success-status"><span id="insert-success-msg"></span></div>
@@ -109,10 +109,10 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
-                <div class="col-3 p-2"><input type="text" id="txtIdUpdate" >
+                <div class="col-3 p-2"><input type="text" id="uID" >
                 </div>
                 <div class="col-6 p-2">&nbsp;</div>
-                <div class="col-6 p-2"><input type="button" value="Buscar" id="selecionarConta"  >
+                <div class="col-6 p-2"><input type="button" value="Buscar" id="uBuscar"  >
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Mandante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtNomeTitularUpdate"  ></div>
+                <div class="col-6 p-2"><input type="text" id="uMandante"  ></div>
               </div>
             </div>
           </div>
@@ -129,15 +129,15 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Visitante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtAgenciaUpdate"  ></div>
+                <div class="col-6 p-2"><input type="text" id="uVisitante"  ></div>
               </div>
             </div>
           </div>
           <div class="row pt-1 justify-content-center">
             <div class="col-12 bgcolor-black">
               <div class="row">
-                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols do Mantante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtSaldoUpdate" ></div>
+                <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols do Mandante:</span></div>
+                <div class="col-6 p-2"><input type="text" id="uGolsMandante" ></div>
               </div>
             </div>
           </div>
@@ -145,14 +145,14 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">Gols do Visitante:</span></div>
-                <div class="col-6 p-2"><input type="text" id="txtSaldoUpdate" ></div>
+                <div class="col-6 p-2"><input type="text" id="uGolsVisitante" ></div>
               </div>
             </div>
           </div>
           <div class="row pt-1 justify-content-center">
             <div class="col-12 bgcolor-black">
               <div class="row justify-content-center">
-                <div class="col-ls-12 p-2"><input type="button" value="Atualizar" id="submitAtualizar"  ></div>
+                <div class="col-ls-12 p-2"><input type="button" value="Atualizar" id="uSubmit"  ></div>
               </div>
             </div>
             <div class="col-12 p-2 success text-center absolute hide" id="update-success-status"><span id="update-success-msg"></span></div>
@@ -185,10 +185,10 @@
             <div class="col-12 bgcolor-black">
               <div class="row">
                 <div class="col-6 p-2"><span class="textcolor-white ml-5">ID:</span></div>
-                <div class="col-3 p-2"><input type="text" id="txtIdDelete" >
+                <div class="col-3 p-2"><input type="text" id="dID" >
                 </div>
                 <div class="col-6 p-2">&nbsp;</div>
-                <div class="col-6 p-2"><input type="button" value="Excluir" id="submitDelete"  >
+                <div class="col-6 p-2"><input type="button" value="Excluir" id="dSubmit"  >
                 </div>
               </div>
             </div>

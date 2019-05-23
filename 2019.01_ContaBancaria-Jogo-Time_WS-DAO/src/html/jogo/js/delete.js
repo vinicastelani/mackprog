@@ -1,14 +1,14 @@
 $(window).ready(function(){
 
-    txtID = $('#txtIdDelete');
-    botaoDeletar = $('#submitDelete');
+    id = $('#dID');
+    botaoDeletar = $('#dSubmit');
 
     $(botaoDeletar).on("click",function(){
         if (txtID.val() == ''){
             failMessage('Por favor, insira dados válidos!');
         }
-        const ID = txtID.val();
-        const URL = `/api/conta-bancaria/${ID}`;
+        const ID = id.val();
+        const URL = `/api/jogo/${ID}`;
         const deleteRequest = {
           method: 'DELETE'
         };
@@ -45,11 +45,11 @@ $(window).ready(function(){
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Conta não encontrada, insira um ID válido`);
+            failMessage(`Partida não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
+            failMessage('Falha na criação de partida, por favor, insira dados válidos.')
         } else {
-            successMessage('Conta removida!');
+            successMessage('Partida removida!');
         }
 
         txtID.val("");

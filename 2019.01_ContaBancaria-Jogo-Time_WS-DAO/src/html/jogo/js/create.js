@@ -1,20 +1,21 @@
 $(window).ready(function(){
 
-  var txtNomeTitular = $("#txtNomeTitularCreate");
-  var txtAgencia = $("#txtAgenciaCreate");
-  var txtSaldo = $("#txtSaldoCreate");
-  var submit = $("#submitCreate");
+  var nomeMandante = $("#cMandante");
+  var nomeVisitante = $("#cVisitante");
+  var golsMandante = $("#cGolsMandante");
+  var golsVisitante = $("#cGolsVisitante");
 
   $(submit).on("click",function(){
-    const URL = `/api/conta-bancaria`;
-    const dadosContaBancaria = {
-      'nomeTitular': txtNomeTitular.val(),
-      'saldo': txtSaldo.val(),
-      'numeroAgencia': txtAgencia.val()
+    const URL = `/api/jogo`;
+    const dadosJogo = {
+      'nome_time_a': nomeMandante.val(),
+      'nome_time_b': nomeVisitante.val(),
+      'gols_time_a': golsMandante.val()
+      'gols_time_b': golsVisitante.val()
     };
     const postRequest = {
       method: 'POST',
-      body: JSON.stringify(dadosContaBancaria),
+      body: JSON.stringify(dadosJogo),
       headers: {
         'Content-type': 'application/json;charset=UTF-8'
       }
@@ -26,15 +27,16 @@ $(window).ready(function(){
     }
   });
 
-  function mostrarMensagem(contaCadastrada) {
-      txtNomeTitular.val("");
-      txtSaldo.val("");
-      txtAgencia.val("");
+  function mostrarMensagem(dadosJogo) {
+      nomeMandante.val("");
+      nomeVisitante.val("");
+      golsMandante.val("");
+      golsVisitante.val("");
 
       if(contaCadastrada.code != 500){
-          successMessage(`Conta criada com o ID:${contaCadastrada.id}`);
+          successMessage(`Partida criada com o ID:${dadosJogo.id}`);
       } else {
-          failMessage(`Falha na criação de conta, por favor, insira dados válidos`);
+          failMessage(`Falha na criação da partida, por favor, insira dados válidos`);
       }
 
   }

@@ -1,27 +1,29 @@
 $(window).ready(function(){
-    const txtNomeTitular = $('#txtNomeTitularUpdate');
-    const txtAgencia = $('#txtAgenciaUpdate');
-    const txtSaldo = $('#txtSaldoUpdate');
-    const txtID = $('#txtIdUpdate');
+    const id = $('#uID');
+    const mandante = $('#uMandante');
+    const visitante = $('#uVisitante');
+    const golsMandante = $('#uGolsMandante');
+    const golsVisitante = $('#uGolsVisitante');
 
-    const botaoSelecionar = $('#selecionarConta');
-    const botaoAtualizar = $('#submitAtualizar');
+    const botaoSelecionar = $('#uBuscar');
+    const botaoAtualizar = $('#uSubmit');
 
     $(botaoAtualizar).on("click",function(){
-        if (txtID.val() == ''){
+        if (id.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = txtID.val();
+        const ID = id.val();
         const URL = `/api/conta-bancaria/${ID}`;
-        const dadosContaBancaria = {
+        const dadosJogo = {
             'id': ID,
-            'nomeTitular': txtNomeTitular.val(),
-            'saldo': txtSaldo.val(),
-            'numeroAgencia': txtAgencia.val()
+            'nomeTimeA': mandante.val(),
+            'nomeTimeB': visitante.val(),
+            'golsTimeA': golsMandante.val()
+            'golsTimeB': golsVisitante.val()
         };
         const putRequest = {
         method: 'PUT',
-        body: JSON.stringify(dadosContaBancaria),
+        body: JSON.stringify(dadosJogo),
         headers: {
             'Content-type': 'application/json;charset=UTF-8'
         }
@@ -34,11 +36,11 @@ $(window).ready(function(){
     });
 
     $(botaoSelecionar).on("click",function(){
-        if (txtID.val() == ''){
+        if (id.val() == ''){
             failMessage('Por favor, insira um ID válido.');
         }
-        const ID = txtID.val();
-        const URL = `/api/conta-bancaria/${ID}`;
+        const ID = id.val();
+        const URL = `/api/jogo/${ID}`;
         try {
             fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherCampos(jsonResponse));
         } catch (e) {
@@ -46,29 +48,31 @@ $(window).ready(function(){
         }
     });
 
-    function preencherCampos(conta){
-        if(conta.nomeTitular == null && conta.agencia == null && conta.saldo == null){
-            failMessage('Conta não encontrada, insira um ID válido');
+    function preencherCampos(jogo){
+        if(jogo.nomeTimeA == null && jogo.nomeTimeB == null && jogo.golsTimeA == null && jogo.golsTimeB == null){
+            failMessage('Partida não encontrada, insira um ID válido');
         }
-        txtID.val(conta.id);
-        txtNomeTitular.val(conta.nomeTitular);
-        txtAgencia.val(conta.numeroAgencia);
-        txtSaldo.val(conta.saldo);;
+        id.val(jogo.id);
+        mandante.val(jogo.nomeTimeA);
+        golsMandante.val(jogo.golsTimeA);
+        visitante.val(jogo.nomeTimeB);;
+        visitante.val(jogo.golsTimeB);;
     }
 
     function resetar(res){
         if(res.status == 404){
-            failMessage(`Conta não encontrada, insira um ID válido`);
+            failMessage(`Partida não encontrada, insira um ID válido`);
         } else if (res.status == 400){
-            failMessage('Falha na criação de conta, por favor, insira dados válidos.')
+            failMessage('Falha na criação de partida, por favor, insira dados válidos.')
         } else {
-            successMessage('Conta atualizada!');
+            successMessage('Partida atualizada!');
         }
 
-        txtID.val("");
-        txtNomeTitular.val("");
-        txtSaldo.val("");
-        txtAgencia.val("");
+        id.val("");
+        mandante.val("");
+        visitante.val("");
+        golsMandante.val("");
+        golsVisitante.val("");
     }
 
     function failMessage(msg){
