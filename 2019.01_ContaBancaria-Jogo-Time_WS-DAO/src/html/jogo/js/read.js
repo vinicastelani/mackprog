@@ -29,7 +29,7 @@ $(window).ready(function(){
   async function listarQtdGols() {
     const URL = `/api/jogo/mais-gols`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 2));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 1));
     } catch (e) {
       corpoTabelaMaS.innerHTML = e;
     }
@@ -37,7 +37,7 @@ $(window).ready(function(){
   async function listarVitoriaMandante() {
     const URL = `/api/jogo/vitoria-mandante`;
     try {
-      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 3));
+      fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse, 2));
     } catch (e) {
       corpoTabelaMeS.innerHTML = e;
     }
