@@ -4,6 +4,7 @@ Repositório para o projeto da disciplina de Programação de Sistemas II
 ## Códigos para criação das tabelas do banco de dados:
 
 ### Tabela Time
+```
 CREATE TABLE time (
 id BIGINT NOT NULL
 GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
@@ -13,8 +14,10 @@ cidade VARCHAR(80) NOT NULL,
 estado VARCHAR(50) NOT NULL,
 PRIMARY KEY (id)
 );
+```
 
 ### Tabela Jogo
+```
 CREATE TABLE jogo (
 id BIGINT NOT NULL
 GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
@@ -24,8 +27,10 @@ gols_time_a INT NOT NULL,
 gols_time_b INT NOT NULL,
 PRIMARY KEY (id)
 );
+```
 
 ### Tabela Conta Bancaria
+```
 CREATE TABLE conta_bancaria (
 id BIGINT NOT NULL
 GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
@@ -34,6 +39,7 @@ saldo DOUBLE NOT NULL,
 numero_agencia VARCHAR(60) NOT NULL,
 PRIMARY KEY (id)
 );
+```
 
 #### Link do Trello
 https://trello.com/b/HvE1S8tT/ps2-mackprog
