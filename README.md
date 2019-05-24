@@ -34,3 +34,9 @@ saldo DOUBLE NOT NULL,
 numero_agencia VARCHAR(60) NOT NULL,
 PRIMARY KEY (id)
 );
+
+#### Link do Trello
+https://trello.com/b/HvE1S8tT/ps2-mackprog
+
+### GitHub Antigo
+https://github.com/vinicastelani/proj_programacao_sistema_II
